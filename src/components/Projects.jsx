@@ -35,7 +35,7 @@ function Projects() {
   return (
     <section id="projects" className="section">
       <div className="container">
-        <h2 style={{ fontSize: '3.2rem', marginBottom: 40 }}>
+        <h2 style={{ fontSize: '2.8rem', marginBottom: 40, color: 'var(--color-secondary)' }}>
           Projects
         </h2>
 

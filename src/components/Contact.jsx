@@ -15,9 +15,10 @@ function Contact() {
       >
         <h2
           style={{
-            fontSize: '3.2rem',
+            fontSize: '2.8rem',
             lineHeight: 1.1,
             margin: '0 0 24px',
+            color: 'var(--color-secondary)',
           }}
         >
           Contact

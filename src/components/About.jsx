@@ -20,10 +20,10 @@ function About() {
         <div>
           <h2
             style={{
-              fontSize: '3.2rem',
+              fontSize: '2.8rem',
               lineHeight: 1.1,
               margin: '0 0 24px',
-              color: 'var(--color-text)',
+              color: 'var(--color-secondary)',
               letterSpacing: 'normal',
             }}
           >
@@ -32,7 +32,7 @@ function About() {
 
           <h1
             style={{
-              fontSize: '2.1rem',
+              fontSize: '1.8rem',
               lineHeight: 1.15,
               maxWidth: 720,
               margin: '0 0 24px',
