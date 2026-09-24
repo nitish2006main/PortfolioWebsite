@@ -17,7 +17,7 @@ function Contact() {
         <p
           className="eyebrow"
           style={{
-            fontSize: '1.1rem',
+            fontSize: '3.2rem',
             marginBottom: 18,
           }}
         >
@@ -26,7 +26,7 @@ function Contact() {
 
         <h2
           style={{
-            fontSize: '4rem',
+            fontSize: '2.1rem',
             lineHeight: 1.1,
             margin: '0 0 24px',
           }}

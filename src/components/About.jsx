@@ -21,7 +21,7 @@ function About() {
           <p
             className="eyebrow"
             style={{
-              fontSize: '1.1rem',
+              fontSize: '3.2rem',
               marginBottom: 18,
             }}
           >
@@ -30,7 +30,7 @@ function About() {
 
           <h1
             style={{
-              fontSize: '4rem',
+              fontSize: '2.1rem',
               lineHeight: 1.15,
               maxWidth: 720,
               margin: '0 0 24px',
