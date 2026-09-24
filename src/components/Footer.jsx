@@ -7,7 +7,7 @@ function Footer() {
         color: 'var(--color-text-muted)',
         fontSize: '0.85rem',
       }}>
-        <span>© {new Date().getFullYear()} Nitish</span>
+        <span>© {new Date().getFullYear()} Nitish Thumkunta Reddy</span>
         <span>Built with React</span>
       </div>
     </footer>

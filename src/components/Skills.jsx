@@ -1,15 +1,15 @@
 const groups = [
   {
-    title: 'Mechanical Design',
-    items: ['SolidWorks', 'GD&T', 'Machining (mill, lathe)', 'Composites / vacuum infusion', 'DFMA'],
+    title: 'Mechanical',
+    items: ['SolidWorks', 'AutoCAD', 'Manufacturing (Machining, 3D Printing)', 'DFMA', 'Assembly'],
   },
   {
-    title: 'Embedded Firmware',
-    items: ['STM32', 'ESP32-S3', 'FreeRTOS', 'C++', 'Motor drivers (stepper/servo/BLDC)'],
+    title: 'Electrical/Embedded',
+    items: ['STM32', 'ESP32-S3', 'Actuator Control', 'Sensor Integration', 'PCB/Hardware Testing Debugging'],
   },
   {
-    title: 'Robotics Software',
-    items: ['ROS2', 'Python', 'MediaPipe / OpenCV', 'A* pathfinding', 'Pure Pursuit'],
+    title: 'Software',
+    items: ['Python', 'C++', 'C', 'FreeRTOS', 'MediaPipe / OpenCV'],
   },
 ]
 

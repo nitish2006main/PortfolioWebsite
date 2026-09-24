@@ -27,7 +27,7 @@ function Navbar() {
           fontSize: '1.15rem',
           color: 'var(--color-text)',
         }}>
-          Nitish<span style={{ color: 'var(--color-secondary)' }}>.</span>
+          Nitish Thumkunta Reddy
         </a>
         <nav style={{ display: 'flex', gap: 28 }}>
           {links.map((l) => (

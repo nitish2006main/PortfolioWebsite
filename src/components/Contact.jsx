@@ -3,7 +3,7 @@ function Contact() {
     <section id="contact" className="section" style={{ background: 'var(--color-surface)' }}>
       <div className="container" style={{ textAlign: 'center', maxWidth: 560 }}>
         <p className="eyebrow">Contact</p>
-        <h2 style={{ fontSize: '2.1rem' }}>Let's talk</h2>
+        <h2 style={{ fontSize: '2.1rem' }}>Let's connect!</h2>
         <p style={{ color: 'var(--color-text-muted)', marginBottom: 28 }}>
           Open to co-op opportunities in mechatronics and robotics. Feel Free to reach out by email or connect on LinkedIn.
         </p>

@@ -14,10 +14,6 @@ function About() {
         <div>
           <p className="eyebrow">About</p>
 
-          <h2 style={{ fontSize: '2.1rem' }}>
-            Building across mechanical, electrical, and software
-          </h2>
-
           <p style={{ color: 'var(--color-text-muted)' }}>
             I'm a 2nd year Mechatronics Engineering student at the University of Waterloo,
             recently finished a co-op at the Waterloo Space Research Team building
@@ -49,7 +45,7 @@ function About() {
           >
             <img
               src="/linkedin-photo.JPG"
-              alt="Nitish Reddy"
+              alt="Nitish Thumkunta Reddy"
               style={{
                 width: '100%',
                 height: '100%',
