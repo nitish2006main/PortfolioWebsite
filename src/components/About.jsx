@@ -30,13 +30,13 @@ function About() {
 
           <h1
             style={{
-              fontSize: '3.2rem',
+              fontSize: '4rem',
               lineHeight: 1.15,
               maxWidth: 720,
               margin: '0 0 24px',
             }}
           >
-            Mechatronics Engineering student at the University of Waterloo.
+            Mechatronics Engineering student at the University of Waterloo
           </h1>
 
           <p

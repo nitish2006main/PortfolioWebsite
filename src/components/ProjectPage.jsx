@@ -394,7 +394,7 @@ function ProjectPage({ slug }) {
         <div className="container">
           <p className="eyebrow">Skills Learned</p>
 
-          <h2 style={{ fontSize: '2.1rem', marginBottom: 32 }}>
+          <h2 style={{ fontSize: '4rem', marginBottom: 32 }}>
             Skills Learned
           </h2>
 
@@ -412,7 +412,7 @@ function ProjectPage({ slug }) {
         <div className="container">
           <p className="eyebrow">Project Content</p>
 
-          <h2 style={{ fontSize: '2.1rem', marginBottom: 50 }}>
+          <h2 style={{ fontSize: '4rem', marginBottom: 50 }}>
             Project Content
           </h2>
 
@@ -443,7 +443,7 @@ function ProjectPage({ slug }) {
         <div className="container">
           <p className="eyebrow">Results</p>
 
-          <h2 style={{ fontSize: '2.1rem', marginBottom: 28 }}>
+          <h2 style={{ fontSize: '4rem', marginBottom: 28 }}>
             Results
           </h2>
 

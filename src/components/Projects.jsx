@@ -37,7 +37,7 @@ function Projects() {
       <div className="container">
         <p className="eyebrow">Projects</p>
 
-        <h2 style={{ fontSize: '2.1rem', marginBottom: 40 }}>
+        <h2 style={{ fontSize: '4rem', marginBottom: 40 }}>
           Selected work
         </h2>
 
