@@ -1,32 +1,62 @@
+
 function About() {
   return (
     <section id="about" className="section">
-      <div className="container" style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gap: 50,
-        alignItems: 'center',
-      }}>
+      <div
+        className="container"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 0.7fr',
+          gap: 70,
+          alignItems: 'center',
+        }}
+      >
         <div>
           <p className="eyebrow">About</p>
-          <h2 style={{ fontSize: '2.1rem' }}>Grounded in mechanical design, drawn to embedded systems.</h2>
+
+          <h2 style={{ fontSize: '2.1rem' }}>
+            Grounded in mechanical design, drawn to embedded systems.
+          </h2>
+
           <p style={{ color: 'var(--color-text-muted)' }}>
-            I'm a Mechatronics Engineering student at the University of Waterloo, currently on
-            co-op at the Waterloo Space Research Team building a centrifuge soldering experiment
-            tied to the Canadian Space Agency's CAN-RGX program. My background spans mechanical
-            design and fabrication, embedded firmware, and robotics software — I like projects
+            I'm a Mechatronics Engineering student at the University of Waterloo,
+            recently finished a co-op at the Waterloo Space Research Team building
+            a centrifuge soldering experiment tied to the Canadian Space Agency's
+            CAN-RGX 9 competition. My background spans mechanical design and
+            fabrication, embedded firmware, and robotics software. I like projects
             that force all three to work together.
           </p>
         </div>
-        <div className="card" style={{ padding: 32 }}>
-          <h3 style={{ fontSize: '1.1rem', marginBottom: 18 }}>Quick facts</h3>
-          <ul style={{ margin: 0, paddingLeft: 20, color: 'var(--color-text-muted)' }}>
-            <li>Mechatronics Engineering, University of Waterloo</li>
-            <li>Mechatronics Integration Co-op, WSRT (May–Aug 2026)</li>
-            <li>SolidWorks, GD&T, Machining, DFMA, Manufacturing Processes, Assembling </li>
-            <li>ESP32-S3, STM32, FreeRTOS, C++, Python</li>
-            <li>Mediapipe, OpenCV</li>
-          </ul>
+
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <div
+            style={{
+              width: 260,
+              height: 260,
+              borderRadius: '50%',
+              border: '2px solid var(--color-border)',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              overflow: 'hidden',
+            }}
+          >
+            <img
+              src="/linkedin-photo.JPG"
+              alt="Nitish Reddy"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+              }}
+            />
+          </div>
         </div>
       </div>
     </section>
