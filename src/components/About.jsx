@@ -15,13 +15,13 @@ function About() {
           <p className="eyebrow">About</p>
 
           <h2 style={{ fontSize: '2.1rem' }}>
-            Grounded in mechanical design, drawn to embedded systems.
+            Building across mechanical, electrical, and software
           </h2>
 
           <p style={{ color: 'var(--color-text-muted)' }}>
-            I'm a Mechatronics Engineering student at the University of Waterloo,
+            I'm a 2nd year Mechatronics Engineering student at the University of Waterloo,
             recently finished a co-op at the Waterloo Space Research Team building
-            a centrifuge soldering experiment tied to the Canadian Space Agency's
+            an automated centrifuge soldering experiment tied to the Canadian Space Agency's
             CAN-RGX 9 competition. My background spans mechanical design and
             fabrication, embedded firmware, and robotics software. I like projects
             that force all three to work together.
