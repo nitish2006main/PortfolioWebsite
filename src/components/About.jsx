@@ -25,7 +25,7 @@ function About() {
               marginBottom: 18,
             }}
           >
-            About
+            About Me
           </p>
 
           <h1

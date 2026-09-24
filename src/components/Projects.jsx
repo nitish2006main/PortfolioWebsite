@@ -35,10 +35,8 @@ function Projects() {
   return (
     <section id="projects" className="section">
       <div className="container">
-        <p className="eyebrow">Projects</p>
-
         <h2 style={{ fontSize: '3.2rem', marginBottom: 40 }}>
-          Selected work
+          Projects
         </h2>
 
         <div className="project-grid">

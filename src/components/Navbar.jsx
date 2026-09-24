@@ -24,7 +24,7 @@ function Navbar() {
         <a href="#" style={{
           fontFamily: 'var(--font-heading)',
           fontWeight: 700,
-          fontSize: '2.8rem',
+          fontSize: '2.5rem',
           color: 'var(--color-text)',
         }}>
           Nitish Thumkunta Reddy

@@ -17,8 +17,7 @@ function Skills() {
   return (
     <section id="skills" className="section" style={{ background: 'var(--color-surface)' }}>
       <div className="container">
-        <p className="eyebrow">Skills</p>
-        <h2 style={{ fontSize: '3.2rem', marginBottom: 40 }}>What I work with</h2>
+        <h2 style={{ fontSize: '3.2rem', marginBottom: 40 }}>Skills</h2>
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',

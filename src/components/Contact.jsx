@@ -11,31 +11,21 @@ function Contact() {
         className="container"
         style={{
           textAlign: 'left',
-          maxWidth: 560,
         }}
       >
-        <p
-          className="eyebrow"
-          style={{
-            fontSize: '3.2rem',
-            marginBottom: 18,
-          }}
-        >
-          Contact
-        </p>
-
         <h2
           style={{
-            fontSize: '2.1rem',
+            fontSize: '3.2rem',
             lineHeight: 1.1,
             margin: '0 0 24px',
           }}
         >
-          Let's connect!
+          Contact
         </h2>
 
         <p
           style={{
+            maxWidth: 600,
             color: 'var(--color-text-muted)',
             marginBottom: 28,
             fontSize: '1.15rem',
