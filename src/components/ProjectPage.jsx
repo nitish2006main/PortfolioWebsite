@@ -371,7 +371,6 @@ function ProjectPage({ slug }) {
 
       <section className="section">
         <div className="container">
-          <p className="eyebrow">About the Project</p>
 
           <div className="about-project-grid">
             <ImagePlaceholder label={project.aboutImage} />
@@ -392,7 +391,6 @@ function ProjectPage({ slug }) {
         style={{ background: 'var(--color-surface)' }}
       >
         <div className="container">
-          <p className="eyebrow">Skills Learned</p>
 
           <h2 style={{ fontSize: '3.2rem', marginBottom: 32 }}>
             Skills Learned
@@ -410,7 +408,6 @@ function ProjectPage({ slug }) {
 
       <section className="section">
         <div className="container">
-          <p className="eyebrow">Project Content</p>
 
           <h2 style={{ fontSize: '3.2rem', marginBottom: 50 }}>
             Project Content
@@ -441,7 +438,6 @@ function ProjectPage({ slug }) {
         style={{ background: 'var(--color-surface)' }}
       >
         <div className="container">
-          <p className="eyebrow">Results</p>
 
           <h2 style={{ fontSize: '3.2rem', marginBottom: 28 }}>
             Results

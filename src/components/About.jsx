@@ -18,15 +18,17 @@ function About() {
         }}
       >
         <div>
-          <p
-            className="eyebrow"
+          <h2
             style={{
               fontSize: '3.2rem',
-              marginBottom: 18,
+              lineHeight: 1.1,
+              margin: '0 0 24px',
+              color: 'var(--color-text)',
+              letterSpacing: 'normal',
             }}
           >
             About Me
-          </p>
+          </h2>
 
           <h1
             style={{
