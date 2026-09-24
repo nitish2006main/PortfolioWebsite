@@ -376,7 +376,7 @@ function ProjectPage({ slug }) {
             <ImagePlaceholder label={project.aboutImage} />
 
             <div>
-              <h2>About the Project</h2>
+              <h2 style={{ fontSize: '2.8rem', marginBottom: 28, color: 'var(--color-secondary)' }}>About the Project</h2>
 
               <p>{project.about}</p>
 
@@ -392,7 +392,7 @@ function ProjectPage({ slug }) {
       >
         <div className="container">
 
-          <h2 style={{ fontSize: '2.8rem', marginBottom: 32, color: 'var(--color-secondary)' }}>
+          <h2 style={{ fontSize: '2.8rem', marginBottom: 28, color: 'var(--color-secondary)' }}>
             Skills Learned
           </h2>
 
@@ -409,7 +409,7 @@ function ProjectPage({ slug }) {
       <section className="section">
         <div className="container">
 
-          <h2 style={{ fontSize: '2.8rem', marginBottom: 50, color: 'var(--color-secondary)' }}>
+          <h2 style={{ fontSize: '2.8rem', marginBottom: 28, color: 'var(--color-secondary)' }}>
             Project Content
           </h2>
 

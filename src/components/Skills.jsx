@@ -25,7 +25,7 @@ function Skills() {
         }}>
           {groups.map((g) => (
             <div key={g.title} className="card" style={{ padding: 26, background: 'var(--color-bg)' }}>
-              <h3 style={{ fontSize: '1.05rem', color: 'var(--color-secondary)' }}>{g.title}</h3>
+              <h3 style={{ fontSize: '1.05rem',}}>{g.title}</h3>
               <ul style={{ margin: '12px 0 0', paddingLeft: 18, color: 'var(--color-text-muted)' }}>
                 {g.items.map((item) => <li key={item}>{item}</li>)}
               </ul>
