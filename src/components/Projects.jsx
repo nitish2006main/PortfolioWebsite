@@ -6,8 +6,8 @@ const projects = [
       "Mechatronics Integration Co-op at the Waterloo Space Research Team. Designed and machined the centrifuge's motor mount, built STM32/FreeRTOS firmware to drive a 5-actuator soldering system (carrier indexing, dual wire feeders, iron actuation, centrifuge spin), and commissioned it within a 2A slip-ring power constraint.",
     points: [
       'STM32 Nucleo F401RE firmware: PWM/GPIO control for stepper, servo, and BLDC motors',
-      'Machined the motor mount from raw aluminum, validated under 1g–7.5g centrifugal loading',
-      'Redesigned the solder wire feeder, cutting assembly width 25% and thermal rise 47%',
+      'Machined the motor mount from raw aluminum, validated under 0g–3g centrifugal loading',
+      'Redesigned the solder wire feeder, cutting assembly width by 25%, current by 34% and thermal rise by 47%',
     ],
   },
   {

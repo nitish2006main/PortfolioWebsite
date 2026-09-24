@@ -23,9 +23,9 @@ function About() {
           <ul style={{ margin: 0, paddingLeft: 20, color: 'var(--color-text-muted)' }}>
             <li>Mechatronics Engineering, University of Waterloo</li>
             <li>Mechatronics Integration Co-op, WSRT (May–Aug 2026)</li>
-            <li>SolidWorks, GD&T, machining, composites/vacuum infusion</li>
+            <li>SolidWorks, GD&T, Machining, DFMA, Manufacturing Processes, Assembling </li>
             <li>ESP32-S3, STM32, FreeRTOS, C++, Python</li>
-            <li>ROS2, MediaPipe/OpenCV, A*, Pure Pursuit</li>
+            <li>Mediapipe, OpenCV</li>
           </ul>
         </div>
       </div>
