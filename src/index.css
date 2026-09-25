@@ -1,9 +1,9 @@
 :root {
-  --color-bg: #F1EBDD;        /* beige background */
-  --color-surface: #FFFFFF;    /* white sections/cards */
-  --color-text: #362E23;       /* dark warm brown text, matches beige */
+  --color-bg: #F1EBDD;
+  --color-surface: #FFFFFF;
+  --color-text: #362E23;
   --color-text-muted: #766A57;
-  --color-secondary: #C1652F;  /* terracotta accent */
+  --color-secondary: #C1652F;
   --color-secondary-dark: #A2521F;
   --color-border: #E4DCC8;
 
@@ -18,9 +18,12 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  max-width: 100%;
 }
 
 body {
@@ -30,7 +33,10 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-heading);
   color: var(--color-text);
   margin: 0 0 0.5em 0;
@@ -46,6 +52,7 @@ a:hover {
 }
 
 .container {
+  width: 100%;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
@@ -53,6 +60,7 @@ a:hover {
 
 .section {
   padding: 90px 0;
+  width: 100%;
 }
 
 .card {
@@ -104,18 +112,21 @@ a:hover {
   color: var(--color-secondary);
 }
 
+
 /* =========================
    Project Grid
    ========================= */
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 28px;
+  width: 100%;
 }
 
 .project-card {
   display: block;
+  min-width: 0;
   overflow: hidden;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -196,6 +207,13 @@ a:hover {
   margin: 10px 0 50px;
 }
 
+/* Project page section headings:
+   About Project, Skills Learned, Project Content, Results */
+.project-section-title {
+  font-size: 2.8rem;
+  color: var(--color-secondary);
+}
+
 .detail-image-placeholder {
   width: 100%;
   min-height: 320px;
@@ -240,6 +258,13 @@ a:hover {
 /* =========================
    Skills
    ========================= */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+}
 
 .skill-pill-grid {
   display: flex;
@@ -311,7 +336,7 @@ a:hover {
 
 .results-image-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
 }
 
@@ -321,16 +346,171 @@ a:hover {
 
 
 /* =========================
+   Tablet
+   ========================= */
+
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .results-image-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================
    Mobile
    ========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .section {
+    width: 100%;
+    overflow: hidden;
+  }
+
+
+  /* =========================
+     Navbar
+     ========================= */
+
+  header .container {
+    height: auto !important;
+    min-height: 64px;
+    padding: 12px 16px;
+    gap: 10px;
+  }
+
+  .navbar-name {
+    flex-shrink: 1;
+    min-width: 0;
+    font-size: 0.95rem !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .navbar-links {
+    flex-shrink: 0;
+    gap: 9px !important;
+    min-width: 0;
+  }
+
+  header nav a {
+    font-size: 0.72rem !important;
+    white-space: nowrap;
+  }
+
+
+  /* =========================
+     About
+     ========================= */
+
+  #about .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  #about .about-grid > div {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  #about h2 {
+    font-size: 2.3rem !important;
+  }
+
+  #about h1 {
+    font-size: 1.5rem !important;
+  }
+
+  #about .about-grid > div:last-child {
+    width: 100%;
+  }
+
+  #about .about-grid > div:last-child > div {
+    width: min(300px, 75vw) !important;
+    height: min(300px, 75vw) !important;
+    max-width: 100%;
+  }
+
+  #about .btn {
+    padding: 11px 18px;
+    font-size: 0.9rem;
+  }
+
+
+  /* =========================
+     Skills
+     ========================= */
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .skills-grid .card {
+    width: 100%;
+    min-width: 0;
+  }
+
+
+  /* =========================
+     Projects
+     ========================= */
+
   .project-grid {
     grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .project-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+
+  /* =========================
+     Project Detail
+     ========================= */
+
+  .project-detail-hero {
+    padding: 45px 0 60px;
   }
 
   .project-detail-title {
     font-size: 2.4rem;
+    margin-bottom: 35px;
+  }
+
+  /* Scale all four section titles down on mobile.
+     The terracotta color remains unchanged. */
+  .project-section-title {
+    font-size: 2.1rem !important;
   }
 
   .about-project-grid {
@@ -355,5 +535,21 @@ a:hover {
 
   .detail-image-placeholder {
     min-height: 250px;
+    max-width: 100%;
+  }
+
+  .detail-image-placeholder span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+
+  /* =========================
+     Footer
+     ========================= */
+
+  footer .container {
+    gap: 10px;
+    flex-wrap: wrap;
   }
 }

@@ -9,7 +9,7 @@ function About() {
       }}
     >
       <div
-        className="container"
+        className="container about-grid"
         style={{
           display: 'grid',
           gridTemplateColumns: '1fr 0.7fr',

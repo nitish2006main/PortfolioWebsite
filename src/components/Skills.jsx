@@ -18,11 +18,7 @@ function Skills() {
     <section id="skills" className="section" style={{ background: 'var(--color-surface)' }}>
       <div className="container">
         <h2 style={{ fontSize: '2.8rem', marginBottom: 40, color: 'var(--color-secondary)' }}>Skills</h2>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 24,
-        }}>
+        <div className="skills-grid">
           {groups.map((g) => (
             <div key={g.title} className="card" style={{ padding: 26, background: 'var(--color-bg)' }}>
               <h3 style={{ fontSize: '1.05rem',}}>{g.title}</h3>
