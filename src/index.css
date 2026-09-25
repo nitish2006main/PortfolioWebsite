@@ -112,6 +112,12 @@ a:hover {
   color: var(--color-secondary);
 }
 
+.content-images {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 
 /* =========================
    Project Grid
@@ -186,7 +192,7 @@ a:hover {
    ========================= */
 
 .project-detail-hero {
-  padding: 70px 0 30px;
+  padding: 70px 0 15px;
 }
 
 .detail-image-placeholder {
@@ -255,7 +261,7 @@ a:hover {
 }
 
 .about-project-grid .detail-image-placeholder {
-  max-width: 500px;
+  max-width: 550px;
   min-height: 0;
   aspect-ratio: 4 / 3;
   margin: 0 auto;
@@ -515,7 +521,7 @@ a:hover {
      ========================= */
 
   .project-detail-hero {
-    padding: 45px 0 30px;
+    padding: 45px 0 15px;
   }
 
   .project-detail-title {

@@ -6,7 +6,7 @@ const projectData = {
     aboutImage: 'Add centrifuge CAD image',
 
     about:
-      'An automated soldering experiment designed to study solder joint formation under simulated microgravity conditions. The system combines mechanical hardware, embedded firmware, motor control, and system integration into a single automated platform.',
+      'An automated soldering experiment designed to study solder joint porosity under simulated microgravity conditions. The system combines mechanical hardware, embedded firmware, motor control, and system integration into a single spinning automated platform.',
 
     goal:
       'The goal was to develop and integrate the mechanical and electrical systems required to reliably position, feed, and solder PCBs while operating under a constrained power system.',
@@ -14,7 +14,9 @@ const projectData = {
     skills: [
       'Mechanical Design',
       'Machining',
-      'Embedded C',
+      'Assembly'
+      'Hardware Testing/Debugging'
+      'C',
       'STM32',
       'FreeRTOS',
       'Motor Control',
@@ -147,7 +149,10 @@ const projectData = {
     title: 'Front Rotor Design and Analysis',
     affiliation: 'Midnight Sun Solar Rayce Car',
 
-    aboutImage: 'Add rotor CAD image',
+    aboutImage: {
+      label: 'My image',
+      image: '/Images/Centrifuge/my-image.png',
+    },
 
     about:
       'A flat rotor component designed for the Midnight Sun Solar Rayce Car as an onboarding mechanical design project.',
@@ -206,7 +211,10 @@ const projectData = {
     title: '4 DOF Universal Phone Stand',
     affiliation: 'Personal Project',
 
-    aboutImage: 'Add phone stand CAD',
+    aboutImage: {
+      label: 'My image',
+      image: '/Images/Centrifuge/my-image.png',
+    },
 
     about:
       'A four-degree-of-freedom adjustable phone stand designed as a personal mechanical design project.',
@@ -264,7 +272,10 @@ const projectData = {
     title: 'Electric Bike Screen',
     affiliation: 'Electrium Mobility',
 
-    aboutImage: 'Add screen / electronics image',
+    aboutImage: {
+      label: 'My image',
+      image: '/Images/Centrifuge/my-image.png',
+    },
 
     about:
       'An embedded display system developed for an electric bike platform to provide riders with real-time vehicle information.',
@@ -320,37 +331,57 @@ const projectData = {
     ],
   },
   'undertray-diffuser': {
-    title: 'Undertray Diffuser',
-    affiliation: 'Waterloo Formula Electric',
-    youtubeUrl: '',
-    about: '[Briefly describe the diffuser design and its purpose.]',
-    skills: [
-      '[Skill or tool]',
-      '[Skill or tool]',
-      '[Skill or tool]',
-    ],
-    content: [
-      {
-        title: '[Design and development]',
-        text: '[Explain what you designed, how you developed it, and your contribution.]',
-        imageLabel: 'Add diffuser design image',
-        imageLeft: true,
-      },
-      {
-        title: '[Fabrication and integration]',
-        text: '[Describe fabrication, assembly, or integration work you completed.]',
-        imageLabel: 'Add fabrication or installation image',
-        imageLeft: false,
-      },
-    ],
-    results: [
-      '[Documented result or completed deliverable]',
-    ],
-    resultImages: [
-      'Add final diffuser image',
-      'Add undertray installation image',
-    ],
+  title: 'Undertray Diffuser',
+  affiliation: 'Waterloo Formula Electric',
+
+  aboutImage: {
+    label: 'Undertray diffuser',
+    image: '/Images/UD/UD_Diffuser.png',
   },
+
+  about:
+    'Manufactured a carbon-fibre undertray diffuser for Waterloo Formula Electric’s 2026 Formula SAE car. My work focused on designing 3D-printed layup moulds for aerodynamic components, supporting the aero subteam, and contributing to the wet-layup process used to attach the diffuser to the existing undertray.',
+  goal:
+    'Develop moulds that supported accurate and practical composite layup, accounting for variation in the carbon-fibre and resin application while allowing the diffuser components to be integrated with the existing undertray.',
+  skills: [
+    'SolidWorks',
+    'Surface Modelling',
+    '3D Mould Design',
+    'Composite Fabrication',
+    'Wet Layup',
+    'DFM',
+    'PDM/SVN CAD collaboration',
+  ],
+
+  content: [
+    {
+      images: [
+        '/Images/UD/UD_Mold1.png',
+        '/Images/UD/UD_Mold2.png',
+      ],
+      title: 'Aerodynamic Mould Design',
+      text:'Designed 3D-printed layup moulds in SolidWorks for aerodynamic components, including the diffuser side walls and gurney flap. Incorporated a ±0.5 mm resin allowance into the mould design to account for variation during carbon-fibre layup. Shared CAD files with the design team through SVN, the team’s PDM system.',
+      imageLeft: true,
+    },
+    {
+      image: '/Images/UD/UD_Result.png',
+      title: 'Composite Fabrication and Integration',
+      text:
+      'Contributed to manufacturing the undertray diffuser using a wet-layup process, applying carbon fibre and resin to the moulds and attaching the resulting components to the existing undertray. The work supported integration of the aerodynamic parts into the 2026 Formula SAE car.',
+      imageLeft: false,
+    },
+  ],
+
+  results: [
+    'Assisted 20+ team members with aerodynamic layup mould designs',
+    'Incorporated a ±0.5 mm resin allowance to account for layup variation',
+    'Contributed to the wet-layup fabrication and integration of the 2026 car’s undertray diffuser',
+    'Created a custom tutorial video for the aerodynamics subteam',
+  ],
+
+  resultImages: [],
+
+},
 }
 
 function ImagePlaceholder({ label, image, className = '' }) {
@@ -469,7 +500,22 @@ function ProjectPage({ slug }) {
                   item.imageLeft ? '' : 'reverse'
                 }`}
               >
-                <ImagePlaceholder label={item.image} />
+                {item.images ? (
+  <div className="content-images">
+    {item.images.map((image, imageIndex) => (
+      <ImagePlaceholder
+        key={`${image}-${imageIndex}`}
+        label={`${item.title} ${imageIndex + 1}`}
+        image={image}
+      />
+        ))}
+      </div>
+    ) : (
+      <ImagePlaceholder
+        label={item.title}
+        image={item.image}
+      />
+    )}
 
                 <div className="project-content-text">
                   <h3>{item.title}</h3>
