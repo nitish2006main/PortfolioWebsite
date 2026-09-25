@@ -14,8 +14,8 @@ const projectData = {
     skills: [
       'Mechanical Design',
       'Machining',
-      'Assembly'
-      'Hardware Testing/Debugging'
+      'Assembly',
+      'Hardware Testing/Debugging',
       'C',
       'STM32',
       'FreeRTOS',
@@ -379,7 +379,7 @@ const projectData = {
     'Created a custom tutorial video for the aerodynamics subteam',
   ],
 
-  resultImages: [],
+  resultImages: []
 
 },
 }
