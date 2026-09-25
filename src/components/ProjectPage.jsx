@@ -3,8 +3,6 @@ const projectData = {
     title: 'Centrifuge Soldering Experiment',
     affiliation: 'Waterloo Space Research Team',
 
-    heroImage: 'Add centrifuge hero image',
-
     aboutImage: 'Add centrifuge CAD image',
 
     about:
@@ -74,12 +72,12 @@ const projectData = {
     title: 'PostureBOT',
     affiliation: 'Personal Project',
 
-    heroImage: {
+    aboutImage: 
+    {
       label: 'PostureBOT',
       image: '/Images/PostureBot/PostureBot1.png',
 
     },
-    aboutImage: 'Add PostureBOT CAD image',
 
     about:
       'A pan-tilt head-tracking and posture-monitoring system combining computer vision, embedded firmware, servo control, and a custom mechanical enclosure.',
@@ -149,7 +147,6 @@ const projectData = {
     title: 'Front Rotor Design and Analysis',
     affiliation: 'Midnight Sun Solar Rayce Car',
 
-    heroImage: 'Add rotor photo / CAD render',
     aboutImage: 'Add rotor CAD image',
 
     about:
@@ -209,7 +206,6 @@ const projectData = {
     title: '4 DOF Universal Phone Stand',
     affiliation: 'Personal Project',
 
-    heroImage: 'Add phone stand photo',
     aboutImage: 'Add phone stand CAD',
 
     about:
@@ -268,7 +264,6 @@ const projectData = {
     title: 'Electric Bike Screen',
     affiliation: 'Electrium Mobility',
 
-    heroImage: 'Add electric bike screen photo',
     aboutImage: 'Add screen / electronics image',
 
     about:
@@ -408,10 +403,6 @@ function ProjectPage({ slug }) {
             {project.title}
           </h1>
 
-          <ImagePlaceholder
-            label={project.heroImage.label}
-            image={project.heroImage.image}
-          />
         </div>
       </section>
 
@@ -419,7 +410,12 @@ function ProjectPage({ slug }) {
         <div className="container">
 
           <div className="about-project-grid">
-            <ImagePlaceholder label={project.aboutImage} />
+            {project.aboutImage && (
+              <ImagePlaceholder
+                label={project.aboutImage.label}
+                image={project.aboutImage.image}
+              />
+            )}
 
             <div>
               <h2 
