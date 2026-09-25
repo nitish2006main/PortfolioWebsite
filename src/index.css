@@ -189,6 +189,13 @@ a:hover {
   padding: 70px 0 90px;
 }
 
+.project-detail-hero .detail-image-placeholder {
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  }
+
 .back-link {
   display: inline-block;
   font-family: var(--font-heading);
@@ -369,6 +376,12 @@ a:hover {
   .results-image-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .project-detail-hero .detail-image-placeholder {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+}
 }
 
 

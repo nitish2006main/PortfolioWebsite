@@ -85,7 +85,7 @@ function About() {
             }}
           >
             <img
-              src="/linkedin-photo.jpg"
+              src="/linkedin-photo.JPG"
               alt="Nitish Reddy"
               style={{
                 width: '100%',
