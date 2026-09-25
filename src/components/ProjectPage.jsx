@@ -320,6 +320,38 @@ const projectData = {
       'Add mounted system photo',
     ],
   },
+  'undertray-diffuser': {
+    title: 'Undertray Diffuser',
+    affiliation: 'Waterloo Formula Electric',
+    youtubeUrl: '',
+    about: '[Briefly describe the diffuser design and its purpose.]',
+    skills: [
+      '[Skill or tool]',
+      '[Skill or tool]',
+      '[Skill or tool]',
+    ],
+    content: [
+      {
+        title: '[Design and development]',
+        text: '[Explain what you designed, how you developed it, and your contribution.]',
+        imageLabel: 'Add diffuser design image',
+        imageLeft: true,
+      },
+      {
+        title: '[Fabrication and integration]',
+        text: '[Describe fabrication, assembly, or integration work you completed.]',
+        imageLabel: 'Add fabrication or installation image',
+        imageLeft: false,
+      },
+    ],
+    results: [
+      '[Documented result or completed deliverable]',
+    ],
+    resultImages: [
+      'Add final diffuser image',
+      'Add undertray installation image',
+    ],
+  },
 }
 
 function ImagePlaceholder({ label, className = '' }) {

@@ -29,6 +29,12 @@ const projects = [
     affiliation: 'Electrium Mobility',
     imageLabel: 'Add e-bike screen image',
   },
+  {
+    slug: 'undertray-diffuser',
+    title: 'Undertray Diffuser',
+    affiliation: 'University of Waterloo Formula Electric',
+    imageLabel: 'Add undertray diffuser image',
+  },
 ]
 
 function Projects() {
