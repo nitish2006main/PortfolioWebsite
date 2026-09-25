@@ -74,7 +74,11 @@ const projectData = {
     title: 'PostureBOT',
     affiliation: 'Personal Project',
 
-    heroImage: 'Add PostureBOT hero image',
+    heroImage: {
+      label: 'PostureBOT',
+      image: '/Images/PostureBot/PostureBot1.png',
+
+    },
     aboutImage: 'Add PostureBOT CAD image',
 
     about:
@@ -354,10 +358,17 @@ const projectData = {
   },
 }
 
-function ImagePlaceholder({ label, className = '' }) {
+function ImagePlaceholder({ label, image, className = '' }) {
   return (
     <div className={`detail-image-placeholder ${className}`}>
-      <span>{label}</span>
+      {image ? (
+        <img
+          src={image}
+          alt={label}
+        />
+      ) : (
+        <span>{label}</span>
+      )}
     </div>
   )
 }
@@ -397,7 +408,10 @@ function ProjectPage({ slug }) {
             {project.title}
           </h1>
 
-          <ImagePlaceholder label={project.heroImage} />
+          <ImagePlaceholder
+            label={project.heroImage.label}
+            image={project.heroImage.image}
+          />
         </div>
       </section>
 
