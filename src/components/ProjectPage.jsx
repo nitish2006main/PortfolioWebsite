@@ -345,7 +345,6 @@ const projectData = {
     'Develop moulds that supported accurate and practical composite layup, accounting for variation in the carbon-fibre and resin application while allowing the diffuser components to be integrated with the existing undertray.',
   skills: [
     'SolidWorks',
-    'Surface Modelling',
     '3D Mould Design',
     'Composite Fabrication',
     'Wet Layup',
@@ -359,6 +358,7 @@ const projectData = {
         '/Images/UD/UD_Mold1.png',
         '/Images/UD/UD_Mold2.png',
       ],
+      videoId: 'tA8FooIQ7hQ',
       title: 'Aerodynamic Mould Design',
       text:'Designed 3D-printed layup moulds in SolidWorks for aerodynamic components, including the diffuser side walls and gurney flap. Incorporated a ±0.5 mm resin allowance into the mould design to account for variation during carbon-fibre layup. Shared CAD files with the design team through SVN, the team’s PDM system.',
       imageLeft: true,
@@ -396,6 +396,26 @@ function ImagePlaceholder({ label, image, className = '' }) {
         <span>{label}</span>
       )}
     </div>
+  )
+}
+
+function VideoThumbnail({ videoId, title }) {
+  return (
+    <a
+      href={`https://www.youtube.com/watch?v=${videoId}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="video-thumbnail"
+    >
+      <img
+        src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`}
+        alt={title}
+      />
+
+      <div className="video-play-button">
+        ▶
+      </div>
+    </a>
   )
 }
 
@@ -491,8 +511,7 @@ function ProjectPage({ slug }) {
           style={{ fontSize: '2.8rem', marginBottom: 28, color: 'var(--color-secondary)' }}>
             Project Content
           </h2>
-
-          <div className="project-content-list">
+            <div className="project-content-list">
             {project.content.map((item, index) => (
               <div
                 key={`${item.title}-${index}`}
@@ -501,6 +520,41 @@ function ProjectPage({ slug }) {
                 }`}
               >
                 {item.images ? (
+                  <div className="content-images">
+                    {item.images.map((image, imageIndex) => (
+                      <ImagePlaceholder
+                        key={`${image}-${imageIndex}`}
+                        label={`${item.title} ${imageIndex + 1}`}
+                        image={image}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <ImagePlaceholder
+                    label={item.title}
+                    image={item.image}
+                  />
+                )}
+
+      <div className="project-content-text">
+        <h3>{item.title}</h3>
+        <p>{item.text}</p>
+
+        {item.videoId && (
+          <div className="content-video">
+            <h4>Mould Design Walkthrough</h4>
+
+            <VideoThumbnail
+              videoId={item.videoId}
+              title="Mould Design Walkthrough"
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  ))}
+</div>
+      {item.images ? (
   <div className="content-images">
     {item.images.map((image, imageIndex) => (
       <ImagePlaceholder

@@ -118,6 +118,44 @@ a:hover {
   gap: 20px;
 }
 
+.content-video {
+  margin-top: 28px;
+}
+
+.content-video h4 {
+  margin-bottom: 12px;
+}
+
+.video-thumbnail {
+  position: relative;
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.video-thumbnail img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.video-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
 
 /* =========================
    Project Grid
