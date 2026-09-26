@@ -74,11 +74,9 @@ const projectData = {
     title: 'PostureBOT',
     affiliation: 'Personal Project',
 
-    aboutImage: 
-    {
+    aboutImage: {
       label: 'PostureBOT',
       image: '/Images/PostureBot/PostureBot1.png',
-
     },
 
     about:
@@ -330,58 +328,61 @@ const projectData = {
       'Add mounted system photo',
     ],
   },
+
   'undertray-diffuser': {
-  title: 'Undertray Diffuser',
-  affiliation: 'Waterloo Formula Electric',
+    title: 'Undertray Diffuser',
+    affiliation: 'Waterloo Formula Electric',
 
-  aboutImage: {
-    label: 'Undertray diffuser',
-    image: '/Images/UD/UD_Diffuser.png',
+    aboutImage: {
+      label: 'Undertray diffuser',
+      image: '/Images/UD/UD_Diffuser.png',
+    },
+
+    about:
+      'Manufactured a carbon-fibre undertray diffuser for Waterloo Formula Electric’s 2026 Formula SAE car. My work focused on designing 3D-printed layup moulds for aerodynamic components, supporting the aero subteam, and contributing to the wet-layup process used to attach the diffuser to the existing undertray.',
+
+    goal:
+      'Develop moulds that supported accurate and practical composite layup, accounting for variation in the carbon-fibre and resin application while allowing the diffuser components to be integrated with the existing undertray.',
+
+    skills: [
+      'SolidWorks',
+      '3D Mould Design',
+      'Composite Fabrication',
+      'Wet Layup',
+      'DFM',
+      'PDM/SVN CAD collaboration',
+    ],
+
+    content: [
+      {
+        images: [
+          '/Images/UD/UD_Mold1.png',
+          '/Images/UD/UD_Mold2.png',
+        ],
+        videoId: 'tA8FooIQ7hQ',
+        title: 'Aerodynamic Mould Design',
+        text:
+          'Designed 3D-printed layup moulds in SolidWorks for aerodynamic components, including the diffuser side walls and gurney flap. Incorporated a ±0.5 mm resin allowance into the mould design to account for variation during carbon-fibre layup. Shared CAD files with the design team through SVN, the team’s PDM system.',
+        imageLeft: true,
+      },
+      {
+        image: '/Images/UD/UD_Result.png',
+        title: 'Composite Fabrication and Integration',
+        text:
+          'Contributed to manufacturing the undertray diffuser using a wet-layup process, applying carbon fibre and resin to the moulds and attaching the resulting components to the existing undertray. The work supported integration of the aerodynamic parts into the 2026 Formula SAE car.',
+        imageLeft: false,
+      },
+    ],
+
+    results: [
+      'Assisted 20+ team members with aerodynamic layup mould designs',
+      'Incorporated a ±0.5 mm resin allowance to account for layup variation',
+      'Contributed to the wet-layup fabrication and integration of the 2026 car’s undertray diffuser',
+      'Created a custom tutorial video for the aerodynamics subteam',
+    ],
+
+    resultImages: [],
   },
-
-  about:
-    'Manufactured a carbon-fibre undertray diffuser for Waterloo Formula Electric’s 2026 Formula SAE car. My work focused on designing 3D-printed layup moulds for aerodynamic components, supporting the aero subteam, and contributing to the wet-layup process used to attach the diffuser to the existing undertray.',
-  goal:
-    'Develop moulds that supported accurate and practical composite layup, accounting for variation in the carbon-fibre and resin application while allowing the diffuser components to be integrated with the existing undertray.',
-  skills: [
-    'SolidWorks',
-    '3D Mould Design',
-    'Composite Fabrication',
-    'Wet Layup',
-    'DFM',
-    'PDM/SVN CAD collaboration',
-  ],
-
-  content: [
-    {
-      images: [
-        '/Images/UD/UD_Mold1.png',
-        '/Images/UD/UD_Mold2.png',
-      ],
-      videoId: 'tA8FooIQ7hQ',
-      title: 'Aerodynamic Mould Design',
-      text:'Designed 3D-printed layup moulds in SolidWorks for aerodynamic components, including the diffuser side walls and gurney flap. Incorporated a ±0.5 mm resin allowance into the mould design to account for variation during carbon-fibre layup. Shared CAD files with the design team through SVN, the team’s PDM system.',
-      imageLeft: true,
-    },
-    {
-      image: '/Images/UD/UD_Result.png',
-      title: 'Composite Fabrication and Integration',
-      text:
-      'Contributed to manufacturing the undertray diffuser using a wet-layup process, applying carbon fibre and resin to the moulds and attaching the resulting components to the existing undertray. The work supported integration of the aerodynamic parts into the 2026 Formula SAE car.',
-      imageLeft: false,
-    },
-  ],
-
-  results: [
-    'Assisted 20+ team members with aerodynamic layup mould designs',
-    'Incorporated a ±0.5 mm resin allowance to account for layup variation',
-    'Contributed to the wet-layup fabrication and integration of the 2026 car’s undertray diffuser',
-    'Created a custom tutorial video for the aerodynamics subteam',
-  ],
-
-  resultImages: []
-
-},
 }
 
 function ImagePlaceholder({ label, image, className = '' }) {
@@ -431,7 +432,9 @@ function ProjectPage({ slug }) {
               ← Back to Projects
             </a>
 
-            <h1 style={{ marginTop: 40 }}>Project not found</h1>
+            <h1 style={{ marginTop: 40 }}>
+              Project not found
+            </h1>
           </div>
         </section>
       </main>
@@ -446,14 +449,16 @@ function ProjectPage({ slug }) {
             ← Back to Projects
           </a>
 
-          <p className="eyebrow" style={{ marginTop: 40 }}>
+          <p
+            className="eyebrow"
+            style={{ marginTop: 40 }}
+          >
             {project.affiliation}
           </p>
 
           <h1 className="project-detail-title">
             {project.title}
           </h1>
-
         </div>
       </section>
 
@@ -469,49 +474,74 @@ function ProjectPage({ slug }) {
             )}
 
             <div>
-              <h2 
-              className="project-section-title" 
-              style={{ fontSize: '2.8rem', marginBottom: 28, color: 'var(--color-secondary)' }}>About the Project</h2>
+              <h2
+                className="project-section-title"
+                style={{
+                  fontSize: '2.8rem',
+                  marginBottom: 28,
+                  color: 'var(--color-secondary)',
+                }}
+              >
+                About the Project
+              </h2>
 
               <p>{project.about}</p>
 
               <p>{project.goal}</p>
             </div>
           </div>
+
         </div>
       </section>
 
       <section
         className="section"
-        style={{ background: 'var(--color-surface)' }}
+        style={{
+          background: 'var(--color-surface)',
+        }}
       >
         <div className="container">
 
-          <h2 
-          className="project-section-title"
-          style={{ fontSize: '2.8rem', marginBottom: 28, color: 'var(--color-secondary)' }}>
+          <h2
+            className="project-section-title"
+            style={{
+              fontSize: '2.8rem',
+              marginBottom: 28,
+              color: 'var(--color-secondary)',
+            }}
+          >
             Skills Learned
           </h2>
 
           <div className="skill-pill-grid">
             {project.skills.map((skill) => (
-              <div key={skill} className="skill-pill">
+              <div
+                key={skill}
+                className="skill-pill"
+              >
                 {skill}
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
       <section className="section">
         <div className="container">
 
-          <h2 
-          className="project-section-title"
-          style={{ fontSize: '2.8rem', marginBottom: 28, color: 'var(--color-secondary)' }}>
+          <h2
+            className="project-section-title"
+            style={{
+              fontSize: '2.8rem',
+              marginBottom: 28,
+              color: 'var(--color-secondary)',
+            }}
+          >
             Project Content
           </h2>
-            <div className="project-content-list">
+
+          <div className="project-content-list">
             {project.content.map((item, index) => (
               <div
                 key={`${item.title}-${index}`}
@@ -519,6 +549,7 @@ function ProjectPage({ slug }) {
                   item.imageLeft ? '' : 'reverse'
                 }`}
               >
+
                 {item.images ? (
                   <div className="content-images">
                     {item.images.map((image, imageIndex) => (
@@ -536,66 +567,56 @@ function ProjectPage({ slug }) {
                   />
                 )}
 
-      <div className="project-content-text">
-        <h3>{item.title}</h3>
-        <p>{item.text}</p>
-
-        {item.videoId && (
-          <div className="content-video">
-            <h4>Mould Design Walkthrough</h4>
-
-            <VideoThumbnail
-              videoId={item.videoId}
-              title="Mould Design Walkthrough"
-            />
-          </div>
-        )}
-      </div>
-    </div>
-  ))}
-</div>
-      {item.images ? (
-  <div className="content-images">
-    {item.images.map((image, imageIndex) => (
-      <ImagePlaceholder
-        key={`${image}-${imageIndex}`}
-        label={`${item.title} ${imageIndex + 1}`}
-        image={image}
-      />
-        ))}
-      </div>
-    ) : (
-      <ImagePlaceholder
-        label={item.title}
-        image={item.image}
-      />
-    )}
-
                 <div className="project-content-text">
                   <h3>{item.title}</h3>
+
                   <p>{item.text}</p>
+
+                  {item.videoId && (
+                    <div className="content-video">
+                      <h4>
+                        Mould Design Walkthrough
+                      </h4>
+
+                      <VideoThumbnail
+                        videoId={item.videoId}
+                        title="Mould Design Walkthrough"
+                      />
+                    </div>
+                  )}
                 </div>
+
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
       <section
         className="section"
-        style={{ background: 'var(--color-surface)' }}
+        style={{
+          background: 'var(--color-surface)',
+        }}
       >
         <div className="container">
 
-          <h2 
-          className="project-section-title"
-          style={{ fontSize: '2.8rem', marginBottom: 28, color: 'var(--color-secondary)' }}>
+          <h2
+            className="project-section-title"
+            style={{
+              fontSize: '2.8rem',
+              marginBottom: 28,
+              color: 'var(--color-secondary)',
+            }}
+          >
             Results
           </h2>
 
           <ul className="results-list">
             {project.results.map((result) => (
-              <li key={result}>{result}</li>
+              <li key={result}>
+                {result}
+              </li>
             ))}
           </ul>
 
@@ -607,12 +628,19 @@ function ProjectPage({ slug }) {
               />
             ))}
           </div>
+
         </div>
       </section>
 
       <section className="section">
-        <div className="container" style={{ textAlign: 'center' }}>
-          <a href="/#projects" className="btn btn-primary">
+        <div
+          className="container"
+          style={{ textAlign: 'center' }}
+        >
+          <a
+            href="/#projects"
+            className="btn btn-primary"
+          >
             ← Back to Projects
           </a>
         </div>
