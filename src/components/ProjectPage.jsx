@@ -216,10 +216,10 @@ Integrated the slip ring into the rotating assembly by designing wire-routing sl
     },
 
     about:
-      'A pan-tilt head-tracking and posture-monitoring system combining computer vision, embedded firmware, servo control, and a custom mechanical enclosure.',
+    'A real-time pan-tilt head tracking and monitoring system designed to help users maintain better head posture during computer and laptop sessions. It combines computer vision, embedded control, and servo actuation to track 3D head position and provide continuous audio and visual feedback.',
 
     goal:
-      'The goal was to build a complete electromechanical system capable of tracking a user, monitoring head position and eye closure, and providing feedback when the user moved outside the desired range.',
+    'The goal was to build an integrated system that tracks head position and eye closure during a work session, provides immediate feedback when posture moves outside a set range, and records 3D head trajectories for users to review and compare over time.',
 
     skills: [
       'SolidWorks',
@@ -229,117 +229,138 @@ Integrated the slip ring into the rotating assembly by designing wire-routing sl
       'FreeRTOS',
       'OpenCV',
       'MediaPipe',
-      'Computer Vision',
+      'Design for Assembly',
       'Control Systems',
       '3D Printing',
+      'solvePnP', 
+      'PySerial',
+      'Matplotlib',
     ],
 
     content: [
       {
-        image: 'Add PostureBOT enclosure CAD',
+        image: '/Images/PostureBot/PostureBot4.JPG',
         title: 'Mechanical Design',
         text:
-          'Designed the physical enclosure and mounting system in SolidWorks. The design focused on accessibility, component placement, servo routing, and making the electronics accessible during testing and iteration.',
+        'Designed a 3D-printed electronics enclosure in SolidWorks using design-for-assembly (DFA) principles. Integrated the electronics and pan-tilt servo mounting system within a total bill of materials (BOM) constraint of $125, with attention to component placement, wire routing, and accessibility for testing and iteration.',
         imageLeft: true,
       },
       {
-        image: 'Add computer vision image',
-        title: 'Computer Vision',
+        image: '/Images/PostureBot/PostureBot2.png',
+        title: 'Computer Vision and 3D Tracking',
         text:
-          'Implemented face tracking using Python, OpenCV, and MediaPipe. Face position and head pose information were processed to determine how the pan and tilt axes should respond.',
+    'Built a Python computer vision pipeline using OpenCV, MediaPipe, and solvePnP to detect facial landmarks, estimate head pose, and detect eye closure. Calibrated the system at startup to establish the pan-tilt origin position before tracking, then fused vision-based distance estimation with servo kinematics to track the user’s live 3D head position.',
         imageLeft: false,
       },
       {
-        image: 'Add ESP32 electronics image',
-        title: 'Embedded System',
+        image: '/Images/PostureBot/PostureBot3.JPG',
+        title: 'Embedded Control System',
         text:
-          'Built the embedded control system around an ESP32-S3 using FreeRTOS tasks, queues, and mutexes. The system coordinated the display, servos, encoder, buzzer, and other control functions.',
+        'Architected a five-task FreeRTOS system on a dual-core ESP32-S3 using C++. Separated time-critical servo control from communication, UI, and feedback tasks using queues and mutexes. Implemented closed-loop proportional control at 20 Hz with PySerial communication between the Python vision pipeline and the ESP32-S3.',
         imageLeft: true,
-      },
-      {
-        image: 'Add tracking test image',
-        title: 'Control and Testing',
-        text:
-          'Used proportional control to drive the pan and tilt servos based on the detected face position. Testing was performed across more than 50 sessions to evaluate tracking and system behavior.',
-        imageLeft: false,
       },
     ],
 
     results: [
-      'Implemented real-time pan and tilt face tracking',
+      'Validated posture tracking performance across 50+ recorded sessions',
       'Achieved approximately 50 ms system response latency',
-      'Maintained approximately 15 px steady-state tracking error',
-      'Built session analytics across 50+ testing sessions',
+      'Implemented continuous audio and visual feedback for posture monitoring',
+      'Integrated the mechanical, electrical, and software systems within a $125 BOM constraint',
     ],
 
     resultImages: [
-      'Add final PostureBOT photo',
-      'Add tracking screenshot',
-      'Add enclosure photo',
+      {
+        type: 'youtube',
+        title: 'PostureBOT Demo',
+        videoId: '81WSANa1Dlc'
+      }
     ],
   },
 
   'solar-car-rotor': {
-    title: 'Front Rotor Design and Analysis',
-    affiliation: 'Midnight Sun Solar Rayce Car',
+  title: 'Front Rotor and Brake Caliper Mount Design',
+  affiliation: 'Midnight Sun Solar Rayce Car',
 
-    aboutImage: {
-      label: 'My image',
-      image: '/Images/Centrifuge/my-image.png',
+  aboutImage: 
+    {
+      image: '/Images/Rotor/Rotor_CAD_FullAssembly.png',
+      label: 'Front Rotor Assembly CAD',
     },
 
-    about:
-      'A flat rotor component designed for the Midnight Sun Solar Rayce Car as an onboarding mechanical design project.',
+  about:
+    'Designed and analyzed a front rotor and brake caliper mount for the Midnight Sun Solar Rayce Car, focusing on structural performance, clearance, weight reduction, and manufacturability.',
 
-    goal:
-      'The goal was to develop a rotor geometry capable of handling the supplied torque loading while maintaining a suitable structural safety margin.',
+  goal:
+    'The goal was to redesign the front rotor and brake caliper mount to resolve upright interference, maintain structural performance under braking loads, reduce rotor weight, and improve manufacturability.',
 
-    skills: [
-      'SolidWorks',
-      '3D CAD',
-      'Finite Element Analysis',
-      'FEA',
-      'Mechanical Design',
-      'Design Iteration',
-      'Structural Analysis',
-    ],
+  skills: [
+    'SolidWorks',
+    '3D CAD',
+    'Finite Element Analysis',
+    'FEA',
+    'Mechanical Design',
+    'Technical Drawings',
+    'DFMA',
+    'Design Iteration',
+    'Structural Analysis',
+  ],
 
-    content: [
-      {
-        image: 'Add rotor CAD',
-        title: 'Initial Design',
-        text:
-          'Created the rotor geometry in SolidWorks based on the requirements provided by the design leads. The geometry was developed with manufacturability and structural performance in mind.',
-        imageLeft: true,
-      },
-      {
-        image: 'Add FEA setup screenshot',
-        title: 'FEA Setup',
-        text:
-          'Set up a SolidWorks Simulation study using the supplied torque load. Virtual wall constraints were used to constrain the model while allowing deformation to be evaluated across the rotor surface.',
-        imageLeft: false,
-      },
-      {
-        image: 'Add FEA result',
-        title: 'Design Iteration',
-        text:
-          'Iterated on the rotor geometry based on the simulation results, focusing on reducing areas of high stress while maintaining the overall component geometry.',
-        imageLeft: true,
-      },
-    ],
+  content: [
+    {
+      images: [
+        {
+          src: '/Images/Rotor/Rotor_CAD_Assembly.png',
+          caption: 'Upright-to-Rotor Clearance',
+        },
+      ],
+      title: 'Clearance Optimization',
+      text:
+        'Redesigned the front rotor to resolve interference with the upright, increasing the available clearance by 59% while maintaining a flat rotor geometry for improved manufacturability.',
+      imageLeft: true,
+    },
+    {
+      images: [
+        {
+          src: '/Images/Rotor/Rotor_FEA_Rotor.png',
+          caption: 'Rotor FEA Stress',
+        },
+        {
+          src: '/Images/Rotor/Rotor_FEA_BCM.png',
+          caption: 'Brake Caliper Mount FEA Stress',
+        },
+      ],
+      title: 'FEA and Design Validation',
+      text:
+        'Performed FEA in SolidWorks Simulation on both the rotor and brake caliper mount using torque and static-force loading. Evaluated stress and structural performance, achieving a simulated safety factor above 10.',
+      imageLeft: false,
+    },
+    {
+      images: [
+        {
+          src: '/Images/Rotor/Rotor_Drawing_Rotor.png',
+          caption: 'Rotor Technical Drawing',
+        },
+        {
+          src: '/Images/Rotor/Rotor_Drawing_BCM.png',
+          caption: 'Brake Caliper Mount Technical Drawing',
+        },
+      ],
+      title: 'Technical Drawings and Manufacturability',
+      text:
+        'Created fully dimensioned 2D SolidWorks manufacturing drawings for both components. Applied DFMA principles and redesigned the rotor as a flat geometry optimized for CNC waterjet fabrication.',
+      imageLeft: true,
+    },
+  ],
 
-    results: [
-      'Achieved a simulated safety factor above 10',
-      'Validated the rotor against the supplied torque loading',
-      'Used FEA results to guide geometry iterations',
-    ],
-
-    resultImages: [
-      'Add final rotor CAD',
-      'Add FEA stress plot',
-      'Add FEA displacement plot',
-    ],
-  },
+  results: [
+    'Increased upright-to-rotor clearance by 59%',
+    'Reduced rotor weight by 51%',
+    'Performed FEA on both the rotor and brake caliper mount',
+    'Achieved a simulated safety factor above 10',
+    'Created fully dimensioned manufacturing drawings for both components',
+    'Applied DFMA principles to optimize the rotor for CNC waterjet fabrication',
+  ],
+},
 
   'phone-stand': {
     title: '4 DOF Universal Phone Stand',
@@ -699,11 +720,21 @@ function ProjectPage({ slug }) {
                 key={`${item.title}-${index}`}
                 className={`project-content-row ${
                   item.imageLeft ? '' : 'reverse'
+                } ${
+                  slug === 'posturebot'
+                    ? 'posturebot-content-row'
+                    : slug === 'undertray-diffuser' && index === 0
+                      ? 'undertray-mould-row'
+                      : slug === 'phone-stand'
+                        ? 'phone-stand-content-row'
+                        : slug === 'solar-car-rotor'
+                        ? 'solar-car-rotor-content-row'
+                        : ''
                 }`}
               >
 
                 {item.images ? (
-                  <div className="content-images">
+                  <div className = {`content-images ${slug === 'undertray-diffuser' && index === 0? 'undertray-mould-images': ''}`}>
                     {item.images.map((image, index) => (
                       <div
                         className="content-image-item"
@@ -742,19 +773,18 @@ function ProjectPage({ slug }) {
 
                   <p>{item.text}</p>
 
-                  {item.videoId && (
-                    <div className="content-video">
-                      <h4>
-                        Mould Design Walkthrough
-                      </h4>
-
-                      <VideoThumbnail
-                        videoId={item.videoId}
-                        title="Mould Design Walkthrough"
-                      />
-                    </div>
-                  )}
                 </div>
+
+                {slug === 'undertray-diffuser' && index === 0 && item.videoId && (
+                  <div className="undertray-mould-video">
+
+                    <VideoThumbnail
+                      videoId={item.videoId}
+                      title="Mould Design Walkthrough"
+                    />
+                    <h4>Mould Design Walkthrough</h4>
+                  </div>
+                )}
 
               </div>
             ))}
@@ -764,8 +794,9 @@ function ProjectPage({ slug }) {
       </section>
 
       <section
-        id = "results"
-        className="section"
+        id="results"
+        className={`section results-section ${
+          slug === 'phone-stand' ? 'phone-stand-results' : slug === 'posturebot'? 'posturebot-results': ''}`}
         style={{
           background: 'var(--color-surface)',
         }}

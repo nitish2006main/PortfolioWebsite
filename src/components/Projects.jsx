@@ -16,7 +16,7 @@ const projects = [
     slug: 'solar-car-rotor',
     title: 'Front Rotor Design and Analysis',
     affiliation: 'Midnight Sun Solar Rayce Car',
-    image: 'Images/Rotor/Rotor_CAD_Rotor.png',
+    image: '/Images/Rotor/Rotor_CAD_FullAssembly.png',
   },
   {
     slug: 'phone-stand',

@@ -400,6 +400,66 @@ header {
   border-radius: 8px;
 }
 
+.posturebot-content-row .detail-image-placeholder {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.undertray-mould-row {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+
+.undertray-mould-row .undertray-mould-images {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.undertray-mould-row .undertray-mould-images .detail-image-placeholder {
+  min-height: 0;
+  aspect-ratio: 4 / 3;
+}
+
+.undertray-mould-row .undertray-mould-images .detail-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.undertray-mould-row .undertray-mould-video h4 {
+  margin: 10px 0 0;
+  text-align: center;
+}
+
+.undertray-mould-row .undertray-mould-video .video-thumbnail {
+  width: 100%;
+}
+
+.undertray-mould-row .undertray-mould-video .video-thumbnail img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.undertray-mould-row .project-content-text {
+  display: block;
+  width: 100%;
+  max-width: none;
+  grid-column: auto;
+  grid-row: auto;
+  order: 3;
+}
+
+
+.undertray-mould-row + .project-content-row .detail-image-placeholder {
+  width: 65%;
+  margin: 0 auto;
+}
 
 /* =========================
    About Project
@@ -473,13 +533,13 @@ header {
 .project-content-list {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 50px;
 }
 
 .project-content-row {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
+  gap: 30px;
   align-items: center;
 }
 
@@ -502,6 +562,7 @@ header {
 .project-content-text p {
   color: var(--color-text-muted);
 }
+
 
 
 /* =========================
@@ -638,9 +699,11 @@ header {
 
 .result-system-layout {
   display: grid;
-  grid-template-columns: 1.25fr 0.75fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 30px;
   align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .result-system-main {
@@ -675,6 +738,8 @@ header {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 75%;
+  margin: 0 auto;
 }
 
 .result-before-after > div {
@@ -696,7 +761,7 @@ header {
 
 .result-before-after p {
   margin: 6px 0 0;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   font-family: var(--font-heading);
   font-weight: 600;
   text-align: center;
@@ -802,4 +867,109 @@ header {
   .results-image-grid {
     grid-template-columns: 1fr;
   }
+}
+
+.project-content-row.undertray-mould-row {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: none;
+  gap: 30px;
+}
+
+.project-content-row.undertray-mould-row > .undertray-mould-images{
+  width: 80%;
+  margin: 0 auto;
+  max-width: none;
+}
+.project-content-row.undertray-mould-row > .project-content-text {
+  width: 100%;
+  max-width: none;
+}
+
+.project-content-row.undertray-mould-row > .undertray-mould-video {
+  width: 60%;
+  max-width: 650px;
+  margin: 0 auto
+}
+
+.project-content-row.undertray-mould-row > .project-content-text {
+  grid-column: 1 / -1;
+  order: 3;
+}
+
+/* Centrifuge IRL Results */
+.result-card:nth-child(2) .detail-image-placeholder {
+  width: 75%;
+  margin: 0 auto;
+}
+
+/* Centrifuge Demo Video */
+.result-card:nth-child(3) .video-thumbnail {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.phone-stand-results .results-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+}
+
+.phone-stand-results .results-video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phone-stand-results .results-video .video-thumbnail {
+  width: 100%;
+  order: 1;
+}
+
+.phone-stand-results .results-video h3 {
+  order: 2;
+  width: 100%;
+  margin: 14px 0 0;
+  text-align: center;
+}
+
+.phone-stand-content-row .detail-image-placeholder {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.result-card .video-thumbnail {
+  width: 100%;
+}
+
+.posturebot-results .video-thumbnail {
+  width: 65%;
+  margin: 0 auto;
+}
+
+.solar-car-rotor-content-row .content-images {
+  width: 100%;
+}
+
+.solar-car-rotor-content-row .detail-image-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
+  padding: 10px;
+}
+
+.solar-car-rotor-content-row .detail-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.solar-car-rotor-content-row .content-images:has(.content-image-item:only-child) {
+  grid-template-columns: 1fr;
+}
+
+.solar-car-rotor-content-row .content-images:has(.content-image-item:only-child) .content-image-item {
+  width: 85%;
+  margin: 0 auto;
 }
