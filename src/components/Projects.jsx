@@ -4,6 +4,7 @@ const projects = [
     title: 'Centrifuge Soldering Experiment',
     affiliation: 'Waterloo Space Research Team',
     imageLabel: 'Add centrifuge project image',
+    image: '/Images/Centrifuge/Centrifuge_CAD_Assembly.png',
   },
   {
     slug: 'posturebot',
@@ -21,19 +22,13 @@ const projects = [
     slug: 'phone-stand',
     title: '4 DOF Universal Phone Stand',
     affiliation: 'Personal Project',
-    imageLabel: 'Add phone stand image',
-  },
-  {
-    slug: 'electric-bike-screen',
-    title: 'Electric Bike Screen',
-    affiliation: 'Electrium Mobility',
-    imageLabel: 'Add e-bike screen image',
+    image: '/Images/PhoneStand/PhoneStand1.png',
   },
   {
     slug: 'undertray-diffuser',
     title: 'Undertray Diffuser',
     affiliation: 'University of Waterloo Formula Electric',
-    imageLabel: 'Add undertray diffuser image',
+    image: '/Images/UD/UD_Result.png',
   },
 ]
 
@@ -53,7 +48,14 @@ function Projects() {
               className="project-card"
             >
               <div className="project-card-image">
-                <span>{project.imageLabel}</span>
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                  />
+                ) : (
+                  <span>{project.imageLabel}</span>
+                )}
               </div>
 
               <div className="project-card-content">

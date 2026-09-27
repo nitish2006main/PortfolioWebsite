@@ -3,14 +3,16 @@ const projectData = {
     title: 'Centrifuge Soldering Experiment',
     affiliation: 'Waterloo Space Research Team',
 
-    aboutImage: 'Add centrifuge CAD image',
+    aboutImage: {
+  label: 'Centrifuge soldering system',
+  image: '/Images/Centrifuge/Centrifuge_CAD_System_Overview.png',
+},
 
-    about:
-      'An automated soldering experiment designed to study solder joint porosity under simulated microgravity conditions. The system combines mechanical hardware, embedded firmware, motor control, and system integration into a single spinning automated platform.',
+about:
+  'Solder joints produced in microgravity can develop increased porosity, which can reduce joint quality and reliability. This project develops an automated system for performing functional component-level soldering on PCBs while applying controlled centrifugal acceleration. The system integrates mechanical hardware, embedded firmware, motor control, PCB handling, and soldering hardware to investigate whether simulated gravity can improve solder joint formation.',
 
-    goal:
-      'The goal was to develop and integrate the mechanical and electrical systems required to reliably position, feed, and solder PCBs while operating under a constrained power system.',
-
+goal:
+  'The goal is to develop and integrate the mechanical and electrical systems required to perform repeatable PCB soldering while controlling both the heating process and applied acceleration. By producing and comparing solder joints under microgravity, controlled centrifugal acceleration, and normal Earth gravity, the experiment aims to determine whether applied acceleration can reduce porosity and improve solder joint quality.',
     skills: [
       'Mechanical Design',
       'Machining',
@@ -23,32 +25,141 @@ const projectData = {
       '3D Printing',
       'Electronics',
       'System Integration',
+      'Python'
     ],
+
+    systemOverview: [
+  {
+    title: 'Soldering System',
+    image: '/Images/Centrifuge/Centrifuge_CAD_SolderingSystem.png',
+    components: [
+      {
+        name: '1- Dual Iron Rack/Pinion Actuation',
+        description:
+          'Positions and actuates the two soldering irons during the soldering process, driven by Miuzei 20kg servo',
+      },
+      {
+        name: '2- PCB Carrier Rotation',
+        description:
+          'Rotates and positions the PCBs (8x Dark Green Coloured) during the soldering process using ring/spur gear mechanism driven by NEMA17 stepper motor',
+      },
+      {
+        name: '3- Wire Feeder',
+        description:
+          'Feeds solder wire to the soldering irons during the automated soldering sequence driven by NEMA11 stepper motors',
+      },
+    ],
+  },
+
+  {
+    title: 'Centrifuge & Structure',
+    components: [
+      {
+        name: '4- Centrifuge',
+        description:
+          'Contains the soldering system and provides the rotating environment for applying controlled centrifugal acceleration',
+      },
+      {
+        name: '5- Centrifuge Lids',
+        description:
+          'Close the centrifuge from above while incorporating integrated fans and filters',
+      },
+      {
+        name: '6- Exostructure',
+        description:
+        'Supports the centrifuge and maintains its upright orientation while incorporating the slip ring used for all motor power and control, and one thermocouple',
+      },
+      {
+        name: '7- Motor Mount',
+        description:
+        'Supports the centrifuge drive motor and interfaces with the rotating assembly, including the slip ring used for soldering iron power and control, fans and one thermocouple',
+      },
+    ],
+  },
+
+  {
+    title: 'Electrical & Control',
+    image: '/Images/Centrifuge/Centrifuge_Electrical_System.png',
+    components: [
+      {
+        name: '8- Power Supply',
+        description:
+          'Provides power to the motors, electronics, and soldering system',
+      },
+      {
+        name: '9- Motor Drivers',
+        description:
+          'Control the stepper motors used throughout the system',
+      },
+      {
+        name: '10- Electronics Enclosure',
+        description:
+          'Houses and protects the system’s control electronics',
+      },
+      {
+        name: 'STM32 + FreeRTOS',
+        description:
+          'Coordinates the motors and actuators and manages the automated soldering sequence',
+      },
+      {
+        name: 'Python GUI',
+        description:
+          'Provides operator controls and displays command history, centrifuge speed, and thermocouple data',
+      },
+    ],
+  },
+],
 
     content: [
       {
-        image: 'Add motor mount CAD / photo',
+        image: '/Images/Centrifuge/Centrifuge_CAD_MotorMount.png',
         title: 'Motor Mount Design',
-        text:
-          'Designed and machined the centrifuge motor mount from aluminum. The component was developed for operation under the expected 0g–3g centrifugal loading range and fabricated using machining processes including milling and turning.',
+        text: (
+  <>Designed, detailed, machined, and assembled the centrifuge motor mount from aluminum for operation under the expected 0g–3g centrifugal loading range. 
+  <br /><br />
+  Created SolidWorks manufacturing drawings and applied Design for Manufacturing and Assembly (DFMA) principles by reducing the number of components, simplifying geometry, maintaining consistent material thicknesses, and designing features for faster and easier machining. Used milling, turning, and an arbor press during fabrication and assembly, including press-fitting the bearing and shaft while maintaining proper shaft alignment.
+<br /><br />
+Integrated the slip ring into the rotating assembly by designing wire-routing slots along the motor mount and through the shaft. This allowed the slip-ring wiring to pass through the assembly while maintaining a compact design and supporting continuous rotation.
+</>),
         imageLeft: true,
       },
       {
-        image: 'Add wire extruder image',
+        images: [
+          '/Images/Centrifuge/Centrifuge_CAD_WireFeederBefore.png',
+          '/Images/Centrifuge/Centrifuge_CAD_WireFeederAfter.png',
+        ],
         title: 'Wire Feeder Redesign',
-        text:
-          'Redesigned the solder wire feeder to improve its physical and electrical performance. The redesign reduced the assembly width by 25%, current draw by 34%, and thermal rise by 47% during testing.',
+        text: (
+  <>
+    Redesigned the solder wire feeder with a more compact form factor inspired by 3D-printer filament extruders. Developed a spring-tensioning mechanism where an adjustable screw moves a block against the PTFE tube, positioning the tube closer to the drive gear.
+
+    <br /><br />
+
+    The PTFE tube includes an opening that exposes the solder wire to the drive gear, allowing the mechanism to adjust the contact force on the wire for reliable feeding.
+
+    <br /><br />
+
+    Reduced the size of the drive gear and incorporated two heat sinks to improve the overall design and thermal management.
+  </>
+),
         imageLeft: false,
       },
+      
       {
-        image: 'Add firmware / electronics image',
+        image: '/Images/Centrifuge/Centrifuge_FreeRTOS_QuarterMove.png',
         title: 'Embedded Control',
-        text:
-          'Developed STM32 firmware using FreeRTOS to coordinate the system actuators. The system controlled stepper, servo, and BLDC motors while coordinating the sequence required for PCB indexing, solder wire feeding, iron actuation, and centrifuge operation.',
+        text: (
+          <>
+            Developed STM32 firmware using FreeRTOS to coordinate the system actuators.
+
+            Implemented the automated Quarter Move sequence with a dedicated stepper control task that sequences PCB carrier and wire feeder motion, using a message queue and thread flag to synchronize with a separate servo task for solder/retract positioning.
+
+          </>
+        ),
         imageLeft: true,
       },
       {
-        image: 'Add centrifuge system image',
+        image: '/Images/Centrifuge/Centrifuge_IRL_SystemIntegration.JPG',
         title: 'System Integration',
         text:
           'Integrated the mechanical, electrical, and firmware components into the automated centrifuge system, working within the available power constraints and validating the interaction between the different subsystems.',
@@ -57,17 +168,40 @@ const projectData = {
     ],
 
     results: [
-      'Reduced wire feeder assembly width by 25%',
-      'Reduced wire feeder current draw by 34%',
-      'Reduced measured thermal rise by 47%',
-      'Integrated a five-actuator control system using STM32 and FreeRTOS',
+      'Best observed result of 14 of 16 joints soldered, during microgravity testing, at 0–3G operating conditions',
+
+'Validated 0–3G structural integrity under centrifugal loading, with the system tested up to 7.5G',
+
+'Reduced wire feeder width by 25%, current draw by 34%, and measured thermal rise by 47%',
+
+'Automated a 4-actuator soldering sequence using STM32 and FreeRTOS, with a separately controlled centrifuge motor',
     ],
 
     resultImages: [
-      'Add final centrifuge image',
-      'Add motor mount image',
-      'Add wire feeder image',
-    ],
+  {
+    type: 'image',
+    title: 'Final System',
+    src: '/Images/Centrifuge/Centrifuge_IRL_Assembly.JPG',
+    alt: 'Completed centrifuge soldering system',
+  },
+  {
+    type: 'before-after',
+    title: 'Wire Feeder Redesign',
+    before: '/Images/Centrifuge/Centrifuge_IRL_WireFeederBefore.JPG',
+    after: '/Images/Centrifuge/Centrifuge_IRL_WireFeederAfter.png',
+  },
+  {
+    type: 'image',
+    title: 'Soldered Results',
+    src: '/Images/Centrifuge/Centrifuge_IRL_Results.JPG',
+    alt: 'Soldered PCB joints from centrifuge experiment',
+  },
+  {
+    type: 'youtube',
+    title: 'Automated Quarter Move',
+    videoId: 'UaQYpE5VfCM',
+  },
+],
   },
 
   posturebot: {
@@ -211,7 +345,7 @@ const projectData = {
 
     aboutImage: {
       label: 'My image',
-      image: '/Images/Centrifuge/my-image.png',
+      image: '/Images/PhoneStand/PhoneStand1.png',
     },
 
     about:
@@ -222,111 +356,52 @@ const projectData = {
 
     skills: [
       'SolidWorks',
-      'Mechanical Design',
       '3D CAD',
-      'Design for Manufacturing',
       '3D Printing',
       'Mechanism Design',
     ],
 
     content: [
       {
-        image: 'Add phone stand CAD',
-        title: 'Concept Development',
+        image: '/Images/PhoneStand/PhoneStand2.png',
+        title: 'Worm-gear Mechanism + Ball-Socket Joint',
         text:
-          'Developed the overall mechanism and degree-of-freedom layout in CAD, focusing on how the individual joints could work together to position a phone.',
+          'Developed the overall mechanism and degree-of-freedom layout in CAD, which includes a worm-gear mechanism and a ball-socket joint, focusing on how the individual joints could work together to position a phone.',
         imageLeft: true,
       },
       {
-        image: 'Add mechanism image',
-        title: 'Mechanical Design',
+        image: '/Images/PhoneStand/PhoneStand3.png',
+        title: 'Adjustable phone clamping mechanism',
         text:
-          'Designed the individual components and interfaces required to assemble the stand while maintaining adjustability across the different axes.',
+          'Designed the phone clamping mechanism (in purple), which includes a circular wheel with slots (turn to open/close), along with elastic band holders (hooks on each purple arm to hold elastic bands) to hold the phone as tightly as possible (shown in the demo video)',
         imageLeft: false,
       },
       {
-        image: 'Add printed prototype',
+        image: '/Images/PhoneStand/PhoneStand_Result.png',
         title: 'Prototype',
         text:
-          'Created physical prototypes to evaluate the mechanism and identify areas that could be improved through further design iterations.',
+          '3D printed (PETG, PLA and TPU) using Bambu P1S and assembled prototype, which incorporates non 3D printed components such as brass inserts, screws, washers and bearings',
         imageLeft: true,
       },
     ],
 
     results: [
       'Developed a four-degree-of-freedom positioning mechanism',
-      'Created a complete CAD assembly',
-      'Built and evaluated physical prototypes',
+      'Created a complete CAD assembly with limit mating constraints',
+      'Self-locking vertical adjustment using worm gear mechanism to prevent slippage',
+      'Fits phones of widths minimum 55mm',
     ],
 
-    resultImages: [
-      'Add final phone stand',
-      'Add CAD assembly',
-      'Add prototype',
-    ],
+    resultVideos: [
+  {
+    title: 'CAD Motion Demo',
+    videoId: 'w6wwd66D2p0',
   },
-
-  'electric-bike-screen': {
-    title: 'Electric Bike Screen',
-    affiliation: 'Electrium Mobility',
-
-    aboutImage: {
-      label: 'My image',
-      image: '/Images/Centrifuge/my-image.png',
-    },
-
-    about:
-      'An embedded display system developed for an electric bike platform to provide riders with real-time vehicle information.',
-
-    goal:
-      'The goal was to create a compact interface capable of displaying key vehicle information while communicating with the motor controller.',
-
-    skills: [
-      'Embedded C++',
-      'ESP32',
-      'UART',
-      'SPI',
-      'TFT Display',
-      'VESC',
-      'Firmware',
-      'Embedded Systems',
-    ],
-
-    content: [
-      {
-        image: 'Add screen CAD / mounting image',
-        title: 'Display System',
-        text:
-          'Integrated a TFT display with an ESP32-based embedded system to create the user-facing interface for the electric bike.',
-        imageLeft: true,
-      },
-      {
-        image: 'Add firmware screenshot',
-        title: 'Firmware',
-        text:
-          'Developed firmware to receive vehicle information and update the display with relevant riding data.',
-        imageLeft: false,
-      },
-      {
-        image: 'Add final bike screen',
-        title: 'System Integration',
-        text:
-          'Integrated the display hardware, embedded controller, and communication interface into the broader electric bike system.',
-        imageLeft: true,
-      },
-    ],
-
-    results: [
-      'Built a functional embedded display interface',
-      'Integrated an ESP32 with a TFT display',
-      'Displayed real-time vehicle information',
-    ],
-
-    resultImages: [
-      'Add final screen photo',
-      'Add electronics photo',
-      'Add mounted system photo',
-    ],
+  {
+    title: 'Real-Life Demo',
+    videoId: '4O0SFIOMTH0',
+  },
+],
   },
 
   'undertray-diffuser': {
@@ -470,6 +545,7 @@ function ProjectPage({ slug }) {
               <ImagePlaceholder
                 label={project.aboutImage.label}
                 image={project.aboutImage.image}
+                className={slug === 'centrifuge-soldering' ? 'wsrt-about-image' : ''}
               />
             )}
 
@@ -493,7 +569,54 @@ function ProjectPage({ slug }) {
 
         </div>
       </section>
+      {project.systemOverview && (
+  <section className="section system-overview">
+    <div className="container">
 
+      <h2 className="system-overview-title">
+        System Overview
+      </h2>
+
+      <div className="system-overview-groups">
+        {project.systemOverview.map((group, index) => (
+  <div
+    className="system-overview-group"
+    key={group.title}
+  >
+    {index === 0 && (
+      <p className="system-overview-note">
+        Numbers shown below correspond to the numbered components in the CAD image in the About section above.
+      </p>
+    )}
+
+    <h3>{group.title}</h3>
+
+            {group.image && (
+            <ImagePlaceholder
+                  label={group.title}
+                  image={group.image}
+                  className="system-overview-group-image"
+                />
+              )}
+
+            <div className="system-overview-components">
+              {group.components.map((component) => (
+                <div
+                  className="system-overview-component"
+                  key={component.name}
+                >
+                  <h4>{component.name}</h4>
+                  <p>{component.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+)}
       <section
         className="section"
         style={{
@@ -552,19 +675,31 @@ function ProjectPage({ slug }) {
 
                 {item.images ? (
                   <div className="content-images">
-                    {item.images.map((image, imageIndex) => (
+                  {item.images.map((image, index) => (
+                    <div className="content-image-item" key={`${image}-${index}`}>
                       <ImagePlaceholder
-                        key={`${image}-${imageIndex}`}
-                        label={`${item.title} ${imageIndex + 1}`}
+                        label={item.title}
                         image={image}
                       />
-                    ))}
-                  </div>
+                      <p className="content-image-caption">
+                        {index === 0 ? 'Before' : 'After'}
+                      </p>
+                    </div>
+                  ))}
+                </div>
                 ) : (
-                  <ImagePlaceholder
-                    label={item.title}
-                    image={item.image}
-                  />
+                  <div className="content-single-image">
+                    <ImagePlaceholder
+                      label={item.title}
+                      image={item.image}
+                    />
+
+                    {item.title === 'Embedded Control' && (
+                      <p className="content-image-caption">
+                        FreeRTOS implementation of the automated Quarter Move sequence, showing the stepper and servo control tasks synchronized through a message queue and thread flag.
+                      </p>
+                    )}
+                  </div>
                 )}
 
                 <div className="project-content-text">
@@ -621,13 +756,82 @@ function ProjectPage({ slug }) {
           </ul>
 
           <div className="results-image-grid">
-            {project.resultImages.map((image, index) => (
-              <ImagePlaceholder
-                key={`${image}-${index}`}
-                label={image}
-              />
+            {project.resultImages?.map((result, index) => (
+              <div
+                key={`${result.title}-${index}`}
+                className="result-card"
+              >
+                {result.type === 'image' && (
+                  <>
+                    <ImagePlaceholder
+                      label={result.alt}
+                      image={result.src}
+                    />
+
+                    <h3>{result.title}</h3>
+                  </>
+                )}
+
+                {result.type === 'before-after' && (
+                  <>
+                    <div className="result-before-after">
+                      <div>
+                        <ImagePlaceholder
+                          label={`${result.title} before`}
+                          image={result.before}
+                        />
+                        <p>Before</p>
+                      </div>
+
+                      <div>
+                        <ImagePlaceholder
+                          label={`${result.title} after`}
+                          image={result.after}
+                        />
+                        <p>After</p>
+                      </div>
+                    </div>
+
+                    <h3>{result.title}</h3>
+                  </>
+                )}
+
+                {result.type === 'youtube' && (
+                  <>
+                    <VideoThumbnail
+                      videoId={result.videoId}
+                      title={result.title}
+                    />
+
+                    <h3>{result.title}</h3>
+                  </>
+                )}
+              </div>
             ))}
           </div>
+
+          {project.resultVideos?.length > 0 && (
+  <div className="results-video-grid">
+    {project.resultVideos.map((video) => (
+      <div key={video.videoId} className="results-video">
+        <h3>{video.title}</h3>
+
+        <a
+          href={`https://www.youtube.com/watch?v=${video.videoId}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="video-thumbnail"
+        >
+          <img
+            src={`https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`}
+            alt={`${video.title} thumbnail`}
+          />
+          <div className="video-play-button">▶</div>
+        </a>
+      </div>
+    ))}
+  </div>
+)}
 
         </div>
       </section>
