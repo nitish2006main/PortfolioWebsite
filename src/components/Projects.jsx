@@ -1,7 +1,7 @@
 const projects = [
   {
     slug: 'centrifuge-soldering',
-    title: 'Centrifuge Soldering Experiment',
+    title: 'Automated Centrifuge Soldering System',
     affiliation: 'Waterloo Space Research Team',
     imageLabel: 'Add centrifuge project image',
     image: '/Images/Centrifuge/Centrifuge_CAD_Assembly.png',
@@ -10,13 +10,13 @@ const projects = [
     slug: 'posturebot',
     title: 'PostureBOT',
     affiliation: 'Personal Project',
-    imageLabel: 'Add PostureBOT image',
+    image: '/Images/PostureBot/PostureBot1.png',
   },
   {
     slug: 'solar-car-rotor',
     title: 'Front Rotor Design and Analysis',
     affiliation: 'Midnight Sun Solar Rayce Car',
-    imageLabel: 'Add rotor CAD / FEA image',
+    image: 'Images/Rotor/Rotor_CAD_Rotor.png',
   },
   {
     slug: 'phone-stand',

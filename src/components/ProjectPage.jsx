@@ -1,10 +1,10 @@
 const projectData = {
   'centrifuge-soldering': {
-    title: 'Centrifuge Soldering Experiment',
+    title: 'Automated Centrifuge Soldering System',
     affiliation: 'Waterloo Space Research Team',
 
     aboutImage: {
-  label: 'Centrifuge soldering system',
+  label: 'Automated centrifuge soldering system',
   image: '/Images/Centrifuge/Centrifuge_CAD_System_Overview.png',
 },
 
@@ -62,7 +62,7 @@ goal:
       {
         name: '5- Centrifuge Lids',
         description:
-          'Close the centrifuge from above while incorporating integrated fans and filters',
+          'Closes the centrifuge from above while incorporating integrated fans and filters to suck up melted solder smoke',
       },
       {
         name: '6- Exostructure',
@@ -117,7 +117,7 @@ goal:
         text: (
   <>Designed, detailed, machined, and assembled the centrifuge motor mount from aluminum for operation under the expected 0g–3g centrifugal loading range. 
   <br /><br />
-  Created SolidWorks manufacturing drawings and applied Design for Manufacturing and Assembly (DFMA) principles by reducing the number of components, simplifying geometry, maintaining consistent material thicknesses, and designing features for faster and easier machining. Used milling, turning, and an arbor press during fabrication and assembly, including press-fitting the bearing and shaft while maintaining proper shaft alignment.
+  Created SolidWorks technical drawings and applied DFMA principles by optimizing component count, simplifying geometry, maintaining consistent material thicknesses, and designing features for faster and easier machining. Used milling, turning, and an arbor press during fabrication and assembly, including press-fitting the bearing and shaft while maintaining proper shaft alignment.
 <br /><br />
 Integrated the slip ring into the rotating assembly by designing wire-routing slots along the motor mount and through the shaft. This allowed the slip-ring wiring to pass through the assembly while maintaining a compact design and supporting continuous rotation.
 </>),
@@ -125,8 +125,14 @@ Integrated the slip ring into the rotating assembly by designing wire-routing sl
       },
       {
         images: [
-          '/Images/Centrifuge/Centrifuge_CAD_WireFeederBefore.png',
-          '/Images/Centrifuge/Centrifuge_CAD_WireFeederAfter.png',
+          {
+            src: '/Images/Centrifuge/Centrifuge_CAD_WireFeederBefore.png',
+            caption: 'Before',
+          },
+          {
+            src: '/Images/Centrifuge/Centrifuge_CAD_WireFeederAfter.png',
+            caption: 'After',
+          },
         ],
         title: 'Wire Feeder Redesign',
         text: (
@@ -168,7 +174,7 @@ Integrated the slip ring into the rotating assembly by designing wire-routing sl
     ],
 
     results: [
-      'Best observed result of 14 of 16 joints soldered, during microgravity testing, at 0–3G operating conditions',
+      'Best observed result of 14 of 16 joints soldered, during microgravity testing, at 0–3G centrifugal operating conditions',
 
 'Validated 0–3G structural integrity under centrifugal loading, with the system tested up to 7.5G',
 
@@ -179,26 +185,22 @@ Integrated the slip ring into the rotating assembly by designing wire-routing sl
 
     resultImages: [
   {
-    type: 'image',
+    type: 'system-with-before-after',
     title: 'Final System',
     src: '/Images/Centrifuge/Centrifuge_IRL_Assembly.JPG',
     alt: 'Completed centrifuge soldering system',
-  },
-  {
-    type: 'before-after',
-    title: 'Wire Feeder Redesign',
     before: '/Images/Centrifuge/Centrifuge_IRL_WireFeederBefore.JPG',
     after: '/Images/Centrifuge/Centrifuge_IRL_WireFeederAfter.png',
   },
   {
     type: 'image',
-    title: 'Soldered Results',
+    title: 'Soldered Results during CAN-RGX 9 microgravity experiment competition',
     src: '/Images/Centrifuge/Centrifuge_IRL_Results.JPG',
     alt: 'Soldered PCB joints from centrifuge experiment',
   },
   {
     type: 'youtube',
-    title: 'Automated Quarter Move',
+    title: 'Automated Quarter Move - Early Testing',
     videoId: 'UaQYpE5VfCM',
   },
 ],
@@ -431,8 +433,14 @@ Integrated the slip ring into the rotating assembly by designing wire-routing sl
     content: [
       {
         images: [
-          '/Images/UD/UD_Mold1.png',
-          '/Images/UD/UD_Mold2.png',
+          {
+            src: '/Images/UD/UD_Mold1.png',
+            caption: 'Mould Design Middle'
+          },
+          {
+            src: '/Images/UD/UD_Mold2.png',
+            caption: 'Mould Design Sides'
+          }
         ],
         videoId: 'tA8FooIQ7hQ',
         title: 'Aerodynamic Mould Design',
@@ -537,7 +545,23 @@ function ProjectPage({ slug }) {
         </div>
       </section>
 
-      <section className="section">
+      <nav className="project-nav">
+        <div className="container">
+          <div className="project-nav-links">
+            <a href="#about-project">About</a>
+
+            {project.systemOverview && (
+              <a href="#system-overview">System Overview</a>
+            )}
+
+            <a href="#skills">Skills</a>
+            <a href="#project-content">Project Content</a>
+            <a href="#results">Results</a>
+          </div>
+        </div>
+      </nav>
+
+      <section id = "about-project" className="section">
         <div className="container">
 
           <div className="about-project-grid">
@@ -570,7 +594,7 @@ function ProjectPage({ slug }) {
         </div>
       </section>
       {project.systemOverview && (
-  <section className="section system-overview">
+  <section id = "system-overview" className="section system-overview">
     <div className="container">
 
       <h2 className="system-overview-title">
@@ -585,31 +609,35 @@ function ProjectPage({ slug }) {
   >
     {index === 0 && (
       <p className="system-overview-note">
-        Numbers shown below correspond to the numbered components in the CAD image in the About section above.
+        Numbers below shown for each component of the system correspond to the numbered components in the CAD image in the About section above.
       </p>
     )}
 
     <h3>{group.title}</h3>
 
-            {group.image && (
-            <ImagePlaceholder
-                  label={group.title}
-                  image={group.image}
-                  className="system-overview-group-image"
-                />
-              )}
+    <div className={`system-overview-group-layout ${
+    group.image ? 'has-image' : 'no-image'}`}>
+      {group.image && (
+        <div className="system-overview-group-image">
+          <ImagePlaceholder
+            label={group.title}
+            image={group.image}
+          />
+        </div>
+      )}
 
-            <div className="system-overview-components">
-              {group.components.map((component) => (
-                <div
-                  className="system-overview-component"
-                  key={component.name}
-                >
-                  <h4>{component.name}</h4>
-                  <p>{component.description}</p>
-                </div>
-              ))}
-            </div>
+      <div className="system-overview-components">
+        {group.components.map((component) => (
+          <div
+            className="system-overview-component"
+            key={component.name}
+          >
+            <h4>{component.name}</h4>
+            <p>{component.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
           </div>
         ))}
       </div>
@@ -618,6 +646,7 @@ function ProjectPage({ slug }) {
   </section>
 )}
       <section
+        id = "skills"
         className="section"
         style={{
           background: 'var(--color-surface)',
@@ -650,7 +679,7 @@ function ProjectPage({ slug }) {
         </div>
       </section>
 
-      <section className="section">
+      <section id = "project-content" className="section">
         <div className="container">
 
           <h2
@@ -675,18 +704,24 @@ function ProjectPage({ slug }) {
 
                 {item.images ? (
                   <div className="content-images">
-                  {item.images.map((image, index) => (
-                    <div className="content-image-item" key={`${image}-${index}`}>
-                      <ImagePlaceholder
-                        label={item.title}
-                        image={image}
-                      />
-                      <p className="content-image-caption">
-                        {index === 0 ? 'Before' : 'After'}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+                    {item.images.map((image, index) => (
+                      <div
+                        className="content-image-item"
+                        key={`${image.src}-${index}`}
+                      >
+                        <ImagePlaceholder
+                          label={item.title}
+                          image={image.src}
+                        />
+
+                        {image.caption && (
+                          <p className="content-image-caption">
+                            {image.caption}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 ) : (
                   <div className="content-single-image">
                     <ImagePlaceholder
@@ -729,6 +764,7 @@ function ProjectPage({ slug }) {
       </section>
 
       <section
+        id = "results"
         className="section"
         style={{
           background: 'var(--color-surface)',
@@ -755,59 +791,92 @@ function ProjectPage({ slug }) {
             ))}
           </ul>
 
+          {slug === 'centrifuge-soldering' && (
+            <p className="results-note">
+              <strong>Note:</strong> The wire feeder was successfully demonstrated for a partial cycle before thermal issues developed. During extended operation, heat buildup at the soldering needle caused the solder to cool and obstruct the wire path, preventing consistent feeding for the full cycle. For the final competition test, we therefore used an improvised solder-feed method in which solder wire was secured directly to the PCB joints with copper tape and melted by the soldering iron.
+            </p>
+          )}
+
+
+
           <div className="results-image-grid">
-            {project.resultImages?.map((result, index) => (
-              <div
-                key={`${result.title}-${index}`}
-                className="result-card"
-              >
-                {result.type === 'image' && (
-                  <>
-                    <ImagePlaceholder
-                      label={result.alt}
-                      image={result.src}
-                    />
+            {project.resultImages?.map((result, index) => {
 
-                    <h3>{result.title}</h3>
-                  </>
-                )}
+              if (typeof result === 'string') {
+                return (
+                  <ImagePlaceholder
+                    key={`${result}-${index}`}
+                    label={result}
+                  />
+                )
+              }
 
-                {result.type === 'before-after' && (
-                  <>
-                    <div className="result-before-after">
-                      <div>
+              return (
+                <div
+                  key={`${result.title}-${index}`}
+                  className="result-card"
+                >
+
+                  {result.type === 'system-with-before-after' && (
+                    <div className="result-system-layout">
+
+                      <div className="result-system-main">
                         <ImagePlaceholder
-                          label={`${result.title} before`}
-                          image={result.before}
+                          label={result.alt}
+                          image={result.src}
                         />
-                        <p>Before</p>
+
+                        <h3>{result.title}</h3>
                       </div>
 
-                      <div>
-                        <ImagePlaceholder
-                          label={`${result.title} after`}
-                          image={result.after}
-                        />
-                        <p>After</p>
+                      <div className="result-before-after">
+
+                        <div>
+                          <ImagePlaceholder
+                            label="Wire feeder before"
+                            image={result.before}
+                          />
+                          <p>Wire Feeder Redesign - Before</p>
+                        </div>
+
+                        <div>
+                          <ImagePlaceholder
+                            label="Wire feeder after"
+                            image={result.after}
+                          />
+                          <p>Wire Feeder Redesign - After</p>
+                        </div>
+
                       </div>
+
                     </div>
+                  )}
 
-                    <h3>{result.title}</h3>
-                  </>
-                )}
+                  {result.type === 'image' && (
+                    <>
+                      <ImagePlaceholder
+                        label={result.alt}
+                        image={result.src}
+                      />
 
-                {result.type === 'youtube' && (
-                  <>
-                    <VideoThumbnail
-                      videoId={result.videoId}
-                      title={result.title}
-                    />
+                      <h3>{result.title}</h3>
+                    </>
+                  )}
 
-                    <h3>{result.title}</h3>
-                  </>
-                )}
-              </div>
-            ))}
+                  {result.type === 'youtube' && (
+                    <>
+                      <VideoThumbnail
+                        videoId={result.videoId}
+                        title={result.title}
+                      />
+
+                      <h3>{result.title}</h3>
+                    </>
+                  )}
+
+                </div>
+              )
+            })}
           </div>
 
           {project.resultVideos?.length > 0 && (
