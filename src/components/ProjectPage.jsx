@@ -216,11 +216,9 @@ Integrated the slip ring into the rotating assembly by designing wire-routing sl
     },
 
     about:
-    'A real-time pan-tilt head tracking and monitoring system designed to help users maintain better head posture during computer and laptop sessions. It combines computer vision, embedded control, and servo actuation to track 3D head position and provide continuous audio and visual feedback.',
-
+    'I built a real-time pan-tilt head tracking and monitoring system designed to help users maintain better head posture during computer and laptop sessions. It combines computer vision, embedded control, and servo actuation to track 3D head position and provide real-time audio and visual feedback.',
     goal:
-    'The goal was to build an integrated system that tracks head position and eye closure during a work session, provides immediate feedback when posture moves outside a set range, and records 3D head trajectories for users to review and compare over time.',
-
+    'The goal was to build an integrated system that tracks head position and eye closure during a work session, gives immediate feedback when head pose moves outside a set range, and records 3D head trajectories so users can review and compare sessions.',
     skills: [
       'SolidWorks',
       'Python',
@@ -242,7 +240,7 @@ Integrated the slip ring into the rotating assembly by designing wire-routing sl
         image: '/Images/PostureBot/PostureBot4.JPG',
         title: 'Mechanical Design',
         text:
-        'Designed a 3D-printed electronics enclosure in SolidWorks using design-for-assembly (DFA) principles. Integrated the electronics and pan-tilt servo mounting system within a total bill of materials (BOM) constraint of $125, with attention to component placement, wire routing, and accessibility for testing and iteration.',
+        'Designed and 3D-printed a pan-tilt head and an electronics enclosure in SolidWorks using design-for-assembly (DFA) principles. Integrated the electronics and pan-tilt servo mounting system within a total bill of materials (BOM) constraint of $125, with attention to component placement, wire routing, and accessibility for testing and iteration.',
         imageLeft: true,
       },
       {
@@ -256,15 +254,15 @@ Integrated the slip ring into the rotating assembly by designing wire-routing sl
         image: '/Images/PostureBot/PostureBot3.JPG',
         title: 'Embedded Control System',
         text:
-        'Architected a five-task FreeRTOS system on a dual-core ESP32-S3 using C++. Separated time-critical servo control from communication, UI, and feedback tasks using queues and mutexes. Implemented closed-loop proportional control at 20 Hz with PySerial communication between the Python vision pipeline and the ESP32-S3.',
+        'Architected a five-task FreeRTOS system on a dual-core ESP32-S3 using C++. Separated latency-sensitive servo control and serial communication to one core and UI and feedback tasks to the second core. Implemented closed-loop proportional control at 20 Hz with PySerial communication between the Python vision pipeline and the ESP32-S3.',
         imageLeft: true,
       },
     ],
 
     results: [
-      'Validated posture tracking performance across 50+ recorded sessions',
-      'Achieved approximately 50 ms system response latency',
-      'Implemented continuous audio and visual feedback for posture monitoring',
+      'Iterated across 50+ recorded test sessions from first to final prototype',
+      'Ran closed-loop P-control at 20 Hz (50 ms command interval)',
+      'Implemented real-time audio and visual feedback for posture monitoring',
       'Integrated the mechanical, electrical, and software systems within a $125 BOM constraint',
     ],
 
