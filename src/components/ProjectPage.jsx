@@ -174,7 +174,7 @@ Integrated the slip ring into the rotating assembly by designing wire-routing sl
     ],
 
     results: [
-      'Best observed result of 14 of 16 joints soldered, during microgravity testing, at 0–3G centrifugal operating conditions',
+      '14 of 16 joints soldered, during microgravity testing, at 0–3G centrifugal operating conditions',
 
 'Validated 0–3G structural integrity under centrifugal loading, with the system tested up to 7.5G',
 
@@ -192,12 +192,7 @@ Integrated the slip ring into the rotating assembly by designing wire-routing sl
     before: '/Images/Centrifuge/Centrifuge_IRL_WireFeederBefore.JPG',
     after: '/Images/Centrifuge/Centrifuge_IRL_WireFeederAfter.png',
   },
-  {
-    type: 'image',
-    title: 'Soldered Results during CAN-RGX 9 microgravity experiment competition',
-    src: '/Images/Centrifuge/Centrifuge_IRL_Results.JPG',
-    alt: 'Soldered PCB joints from centrifuge experiment',
-  },
+
   {
     type: 'youtube',
     title: 'Automated Quarter Move - Early Testing',
@@ -819,12 +814,6 @@ function ProjectPage({ slug }) {
               </li>
             ))}
           </ul>
-
-          {slug === 'centrifuge-soldering' && (
-            <p className="results-note">
-              <strong>Note:</strong> The wire feeder was successfully demonstrated for a partial cycle before thermal issues developed. During extended operation, heat buildup at the soldering needle caused the solder to cool and obstruct the wire path, preventing consistent feeding for the full cycle. For the final competition test, we therefore used an improvised solder-feed method in which solder wire was secured directly to the PCB joints with copper tape and melted by the soldering iron.
-            </p>
-          )}
 
 
 
